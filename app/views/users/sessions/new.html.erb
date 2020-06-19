@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/../../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="/../../assets/stile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div class='fixed-top'>
+    <div class="container">
+        
+     
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <a class="navbar-brand" <%= link_to "HOME", homepage_index_path %> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="#">Come trovarci </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contattaci</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" <%= link_to "Soci", soci_index_path %> </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Le attività
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+            </li>
+          </ul>
+          </form>
+        </div>
+      </nav>
+    </div>
+    </div>
+
+    <div class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="/../../assets/foto1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/../../assets/foto2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/../../assets/foto3.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+
+
+<div  class="container">
+       
+<p class="lead big-padding">
+     
+<div class="row">
+
+
+<div class="col" >
+   
+
+<div align="center" class="shadow-lg p-3 mb-5 bg-white rounded">
+<div class="card" style="width: 18rem;">
+
+<img src="/../../assets/login.png" class="card-img-top" alt="...">
+
+
+<div class="card-body">
+<h5  class="card-title">LOG IN</h5>
+<p class="card-text">
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+<p align="center"> ______________ </p>
+<%= render "users/shared/links" %>
+
+
+</p>
+   
+
+</div>
+   </div>
+ </div>     
+</div>
+
+
+<div class="container ">
+<p class="lead big-padding">
+
+<a href="contatta"><img src="/../../assets/prenota.png" class="d-block w-100" alt="..."</a>
+
+
+</p>
+
+
+<p align="center"> 2020 RubyOnFitness. All Rights Reserved </p>
+</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/../../assets/bootstrap.min.js"></script>
+</body>
+</html>
+

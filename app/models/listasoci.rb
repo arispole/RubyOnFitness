@@ -1,0 +1,2 @@
+class Listasoci < ApplicationRecord
+end

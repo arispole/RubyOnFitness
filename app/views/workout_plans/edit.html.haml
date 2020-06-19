@@ -1,0 +1,11 @@
+%h2 Modifica scheda
+ 
+= form_tag workout_plan_path(@workoutplan), :method => :put do
+
+    = label :workoutplan, :nome, 'Nome'
+    = text_field :workoutplan, :nome
+ 
+    = label :workoutplan, :note, 'Note'
+    = text_field :workoutplan, :note
+    
+    = submit_tag 'Salva modifiche' 

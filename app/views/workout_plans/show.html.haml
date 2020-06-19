@@ -1,0 +1,32 @@
+%h3 Dettagli scheda 
+
+%table
+  %thead
+    %tr
+      %th Nome
+      %th Gruppo muscolare
+      %th Descrizione
+      %th Serie
+      %th Ripetizioni
+      %th Chilogrammi
+      %th
+      %th
+  %tbody
+    - @exerciseroutines.each do |exerciseroutine|
+      %tr
+        %td= Exercise.find(exerciseroutine.exercise_id).nome
+        %td= Exercise.find(exerciseroutine.exercise_id).gruppo_muscolare
+        %td= Exercise.find(exerciseroutine.exercise_id).descrizione
+        %td= exerciseroutine.serie
+        %td= exerciseroutine.ripetizione
+        %td= exerciseroutine.chilogrammi
+        %td= link_to 'Modifica', edit_workout_plan_exercise_exercise_routine_path(@workoutplan, exerciseroutine.exercise_id, exerciseroutine)
+        %td= link_to 'Rimuovi', workout_plan_exercise_exercise_routine_path(@workoutplan,exerciseroutine.exercise_id, exerciseroutine), :method => :delete
+
+%ul#details
+	
+  %li
+    Note:
+    = @workoutplan.note
+
+#{link_to 'Aggiungi un esercizio',  workout_plan_exercises_path(@workoutplan)} - #{link_to 'Modifica scheda', edit_workout_plan_path(@workoutplan)} - #{link_to 'Elimina scheda', workout_plan_path(@workoutplan), :method => :delete} - #{link_to 'Torna alle schede', workout_plans_path}

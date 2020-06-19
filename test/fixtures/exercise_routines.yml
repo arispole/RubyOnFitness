@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  workout_plan: one
+  exercise: one
+  serie: 1
+  ripetizione: 1
+  chilogrammi: 1
+
+two:
+  workout_plan: two
+  exercise: two
+  serie: 1
+  ripetizione: 1
+  chilogrammi: 1

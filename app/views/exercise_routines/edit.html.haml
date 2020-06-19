@@ -1,0 +1,14 @@
+%h2 Modifica esercizio
+ 
+= form_tag workout_plan_exercise_exercise_routine_path(@exerciseroutine), :method => :put do
+
+    = label :exercise_routine, :serie, 'Serie'
+    = text_field :exercise_routine, :serie
+
+    = label :exercise_routine, :ripetizione, 'Ripetizione'
+    = text_field :exercise_routine, :ripetizione
+
+    = label :exercise_routine, :chilogrammi, 'Chilogrammi'
+    = text_field :exercise_routine, :chilogrammi
+ 
+    = submit_tag 'Salva' 

@@ -1,0 +1,19 @@
+
+%h1 Schede di allenamento
+
+
+%table#workoutplans
+  
+  %thead
+    %tr
+      %th Nome
+      %th Dettagli
+  %tbody
+    - @workoutplans.each do |workoutplan|
+      %tr
+        %td= workoutplan.nome
+        %td= link_to "Vedi", workout_plan_path(workoutplan.id)
+
+</div>
+#{link_to 'Aggiungi una nuova scheda', new_workout_plan_path}
+</div>
