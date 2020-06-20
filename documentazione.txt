@@ -1,5 +1,15 @@
 DOCUMENTAZIONE
 
+Suddivisione del lavoro:
+
+Nicola Colao:
+
+Arianna Spoletini:
+
+Andrea Prodon:
+
+
+
 Piano dei test:
 
 I test vengono implementati per le seguenti user stories:
