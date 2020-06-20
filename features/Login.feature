@@ -4,7 +4,7 @@ Feature: User can log in
     Given I am on the RubyOnFitness homepage
     When I follow "Log in"
     Then I should be on the Login Page
-    And I fill in "Email" with "andrea.giallo@hotmail.it"
+    When I fill in "Email" with "andrea.giallo@hotmail.it"
     And I fill in "Password" with "password"
     And I press "Log in"
     Then I should be on the Login Page
