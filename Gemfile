@@ -64,6 +64,8 @@ group :test do
   gem 'launchy'
 end
 
+gem 'rspec'
+
 gem 'excon'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
