@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   #get di prova 
   get ('/') => redirect('/homepage')
 
-
+  resources :info_e_contatti
   resources :homepage
   resources :soci
   
