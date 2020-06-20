@@ -5,7 +5,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
-         
+   #avatar   
+    has_one_attached :avatar         
+    def avatar_thumbnail
+      if avatar.attached?      
+        avatar.variant(resize: "150x150!").processed  
+      else
+       '/../../assets/distensionipiane.jpg'
+      end
+    end
     has_many :workout_plans, dependent: :destroy
     
     has_many :private_lessons, dependent: :destroy
