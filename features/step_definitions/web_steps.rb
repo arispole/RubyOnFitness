@@ -42,13 +42,14 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
 end
 
 Given /^I am a new, authenticated user$/ do
-  email = 'andrea.giallo@hotmail.it'
-  password = 'password'
+  email = 'test@test.com'
+  password = 'testpassword'
 
-  visit '/users/sign_in'
+  visit '/users/sign_up'
   fill_in 'Email', :with => email
   fill_in 'Password', :with => password
-  click_button "Log in"
+  fill_in 'Password confirmation',  :with => password
+  click_button "Sign up"
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
