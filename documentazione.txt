@@ -1,1 +1,42 @@
 DOCUMENTAZIONE
+
+Piano dei test:
+
+I test vengono implementati per le seguenti user stories:
+
+1• Crea scheda personale
+
+    Come utente registrato
+    Voglio creare una scheda di allenamento personale
+    In modo da ottenere una scheda di allenamento personalizzata
+
+    Acceptance:
+
+        Feature: User can manually add a training card
+
+        Scenario: Add a training card
+            Given I am a new, authenticated user
+            When I follow "Scheda"
+            Then I should be on the Workout Plans page
+            When I follow "Aggiungi"
+            And I fill in "Nome" with "La mia scheda personale"
+            And I fill in "Note" with "Scheda di test"
+            And I press "Salva"
+            Then I should be on the Workout Plans page
+            And I should see "La mia scheda personale"
+
+    Integration:
+
+        
+
+    Unit:
+
+        
+
+
+
+2• Prenota un personal trainer
+
+    Come utente registrato
+    Voglio visualizzare tutti i personal trainer con le relative disponibilità
+    In modo da prenotare una lezione con il personal trainer

@@ -1,6 +1,6 @@
-Feature: User can manually add a training card
+Feature: User can manually add a workout plan
 
-  Scenario: Add a training card
+  Scenario: Add a workout plan
     Given I am a new, authenticated user
     When I follow "Scheda"
     Then I should be on the Workout Plans page

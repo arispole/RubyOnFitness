@@ -1,10 +1,12 @@
-describe test_spec do
+describe WorkoutPlansController do
     
-    given "empty string" do
-        it "returns nothing" do
+    it "creates a new workout plan" do
         
-            expect(0)
+        workoutPlan = WorkoutPlansController.new
+        
+        expect(workoutPlan.new).to eql 
 
-        end
+
     end
+    
 end
