@@ -1,0 +1,13 @@
+%h3 Dettagli lezione privata 
+
+%ul#details
+	%li
+		Inizio:
+		= @privatelesson.inizio
+	%li
+		Prenotata da:
+		- if (@member != nil) 
+			= @member.nome
+
+
+#{link_to 'Torna alle lezioni private', private_lessons_path}

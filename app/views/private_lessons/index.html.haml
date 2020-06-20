@@ -1,0 +1,27 @@
+
+%h1 Disponibilità per lezioni private
+
+
+%table#privatelessons
+  
+  %thead
+    %tr
+      %th Inizio
+      %th 
+      %th
+      %th
+  %tbody
+    - @privatelessons.each do |privatelesson|
+      %tr
+        %td= privatelesson.inizio
+        %td 
+          - if(privatelesson.booked == true) 
+            "Prenotata" 
+          - else 
+            "Disponibile"
+        %td= link_to 'Modifica', edit_private_lesson_path(privatelesson)
+        %td= link_to 'Cancella',  private_lesson_path(privatelesson), :method => :delete
+
+</div>
+#{link_to 'Aggiungi una nuova lezione privata', new_private_lesson_path}
+</div>

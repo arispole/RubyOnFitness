@@ -1,0 +1,9 @@
+
+%h2 Crea una lezione privata
+
+= form_tag private_lessons_path, :method => :post do
+
+    = label :privatelesson, :inizio, 'Inizio'
+    = datetime_select :privatelesson, :inizio
+    
+    = submit_tag 'Salva' 

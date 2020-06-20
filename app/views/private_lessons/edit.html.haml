@@ -1,0 +1,8 @@
+%h2 Modifica lezione
+ 
+= form_tag private_lesson_path(@privatelesson), :method => :put do
+
+    = label :privatelesson, :inizio, 'Inizio'
+    = datetime_select :privatelesson, :inizio
+    
+    = submit_tag 'Salva modifiche' 

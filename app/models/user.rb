@@ -6,6 +6,10 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
          
     has_many :workout_plans, dependent: :destroy
+    
+    has_many :private_lessons, dependent: :destroy
+    
+    has_many :booked_private_lessons, dependent: :destroy
          
 	def self.from_omniauth(auth)
 		where(id: auth["uid"]).first_or_create do |user|
