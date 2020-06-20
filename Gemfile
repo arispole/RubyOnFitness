@@ -56,6 +56,8 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   # Adds support for Capybara system testing and selenium driver
+  gem 'rspec-rails'
+  gem 'rspec'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
@@ -64,7 +66,6 @@ group :test do
   gem 'launchy'
 end
 
-gem 'rspec'
 
 gem 'excon'
 
