@@ -80,8 +80,8 @@
 
 
 
-
-    <div class="container">
+<% if current_user.nil? %>
+   <div class="container">
        
     <p class="lead big-padding">
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -89,8 +89,23 @@
     Si basa sul principio della gioia nel movimento ed è un’attività divertente adatta a tutti senza bisogno di esperienza.
     Il focus delle lezioni è raggiungere il benessere psicofisico attraverso un movimento naturale, basato sulla sensazione di piacere e sulla consapevolezza del proprio corpo.</div>
    
+              
+  <% else %>
+   <p class="lead big-padding">
+       <div class="container"> 
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+
+
+<a type="button" class="btn btn-outline-success"   <%= link_to "Scheda", workout_plans_path %>  </a>
+ 
+  prova
+
+</div>
+           <% end %>
+ 
    
-    
+       
     
     <p align="center"> Scopri i nostri corsi  </p>
     
