@@ -25,3 +25,24 @@ I test vengono implementati per le seguenti user stories:
     Come utente registrato
     Voglio visualizzare tutti i personal trainer con le relative disponibilità
     In modo da prenotare una lezione con il personal trainer
+    
+    
+    
+Struttura controllo degli accessi alle funzionalità:
+    • Amministratore -> ha accesso a tutte le funzionalità dell'applicazione 
+    • Trainer -> può:
+                 - visualizzare i dati degli utenti 
+                 - visualizzare le schede di allenamento di un utente 
+                 - creare una scheda di allenamento per un utente
+                 - visualizzare tutti gli esercizi
+                 - aggiungere/rimuovere esercizi dalla scheda di allenamento che ha precedentemente creato per un utente
+                 - eliminare/modificare le scheda di allenamento che ha precedentemente creato per un utente
+                 - visualizzare/creare/eiliminare/modificare le proprie lezioni private e quelle di gruppo
+    • Utente -> può:
+                - visualizzare i propri dati 
+                - visualizzare tutte le proprie schede di allenamento
+                - visualizzare/creare/eliminare/modificare una scheda di allenamento
+                - visualizzare tutti gli esercizi
+                - aggiungere/rimuovere esercizi dalla propria scheda di allenamento
+                - prenotare/annullare una lezione privata con un trainer oppure una lezione di gruppo
+                 
