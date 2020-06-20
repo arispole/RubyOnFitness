@@ -85,29 +85,43 @@
 
 
 
-    <div class="container">
-       
     <p class="lead big-padding">
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
- <table>
-<tr><td> Esercizi:  </td>  <td>  </tr> 
-   <% @exercises.each do |exercise| %>   
+
+    <div class="container">
+
+ <h2> Esercizi </h2>
+    <div class="row">
+
+<% @exercises.each do |exercise| %>  
+<div class="col-sm">
     
- <td> <img src= "<%= exercise.gruppo_muscolare %>"> </td>  
- 
+    <div class="shadow-lg p-3 mb-5 bg-white rounded" style="width: 15rem;">  
+<div class="card" style="width: 100%;" >
+
+  <img src= "<%= exercise.gruppo_muscolare %>" class="card-img-top" alt="...">
+  <div class="card-body">
 
   
-
+    <p class="card-text"><td>
 <td> 
-<a type="button" class="btn btn-outline-success"   <%= link_to "Dettagli", workout_plan_exercise_path(@workoutplan_id, exercise)%>  </a>
+<a type="button" class="btn btn-outline-info"   <%= link_to "Info", workout_plan_exercise_path(@workoutplan_id, exercise)%>  </a>
 
 <a type="button" class="btn btn-outline-success"   <%= link_to "Aggiungi", new_workout_plan_exercise_exercise_routine_path(@workoutplan_id, exercise) %>  </a>
 </tr>
 
+  </div> 
+ </div> 
+ </div>  
+</div>
+
    <%end%>
 
-</table>
 
+
+
+     
+
+ 
     </div>
     <p align="center"> Scopri i nostri corsi  </p>
     

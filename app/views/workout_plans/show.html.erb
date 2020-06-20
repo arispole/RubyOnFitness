@@ -84,9 +84,6 @@
           </div>
     </div>
 
-
-
-
     <div class="container">
     
     <p class="lead big-padding">
@@ -129,9 +126,12 @@
 
 <hr>
 
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Modifica', edit_workout_plan_exercise_exercise_routine_path(@workoutplan, exerciseroutine.exercise_id, exerciseroutine) %>  </a>
+<a type="button" class="btn btn-outline-warning"   <%= link_to 'Modifica', edit_workout_plan_exercise_exercise_routine_path(@workoutplan, exerciseroutine.exercise_id, exerciseroutine) %>  </a>
    
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Rimuovi', workout_plan_exercise_exercise_routine_path(@workoutplan,exerciseroutine.exercise_id, exerciseroutine), :method => :delete %>  </a></p>
+<a type="button" class="btn btn-outline-danger"   <%= link_to 'Rimuovi', workout_plan_exercise_exercise_routine_path(@workoutplan,exerciseroutine.exercise_id, exerciseroutine), :method => :delete %>  </a></p>
+
+
+
 
 
 </div>
@@ -155,12 +155,47 @@
 
   
 <a type="button" class="btn btn-outline-success"   <%= link_to 'Aggiungi un esercizio',  workout_plan_exercises_path(@workoutplan) %>  </a>
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Modifica scheda', edit_workout_plan_path(@workoutplan)%>  </a>
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Elimina scheda', workout_plan_path(@workoutplan), :method => :delete%>  </a>
+
 <a type="button" class="btn btn-outline-success"   <%= link_to 'Torna alle schede', workout_plans_path %>  </a>
+<a type="button" class="btn btn-outline-warning"   <%= link_to 'Modifica scheda', edit_workout_plan_path(@workoutplan)%>  </a>
+
+
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+  Elimina Scheda
+</button>
 </div>
 
+<!-- Button trigger modal -->
+
+
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Eliminare la scheda</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       Sicuro di voler eliminare la scheda?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" data-dismiss="modal">Annulla</button>
+        <a type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal"  <%= link_to 'Elimina scheda', workout_plan_path(@workoutplan), :method => :delete%>  </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
      <div class="container">
     <p class="lead big-padding">
     <p align="center"> Scopri i nostri corsi  </p>
@@ -296,7 +331,12 @@
 
     
       <p align="center"> 2020 RubyOnFitness. All Rights Reserved </p>
-      </div>
+      
+
+
+
+
+</div>
   
     
 
