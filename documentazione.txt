@@ -1,12 +1,12 @@
 DOCUMENTAZIONE
 
-Suddivisione del lavoro:
+Suddivisione del lavoro (approssimativamente):
 
-Nicola Colao:
+Nicola Colao: homepage, scheda di allenamento ed esercizi, profilo utente, parte grafica pagine html, bug fixing
 
-Arianna Spoletini:
+Arianna Spoletini: Prenotazione lezione privata, Login e registrazione, scheda di allenamento, database, user stories, pagina admin, bug fixing
 
-Andrea Prodon:
+Andrea Prodon: parte grafica pagine html, user stories, test, pagina info e contatti, collegamento con API esterne, bug fixing
 
 
 
