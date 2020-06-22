@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get ('/') => redirect('/homepage')
 
   resources :info_e_contatti
+  resources :personal_profile
   resources :homepage
   resources :soci
   

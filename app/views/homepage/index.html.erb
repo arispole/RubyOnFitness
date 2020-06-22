@@ -27,7 +27,13 @@
  <% if current_user.nil? %>
               
   <% else %>
-    <a class="nav-link" <%= link_to "Scheda", workout_plans_path %> </a>
+    <li class="nav-item">
+<li class="nav-item">
+      <a class="nav-link" <%= link_to "Scheda", workout_plans_path %> </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" <%= link_to "Profilo personale", personal_profile_index_path %> </a>
+    </li>
            <% end %>
             </li>
             <li class="nav-item dropdown">
@@ -50,6 +56,7 @@
               <button class="btn btn-outline-success" href="1"> <%= link_to "Log in", new_user_session_path, class: "text-success" %> </button> &nbsp;
               <button class="btn btn-outline-success" href="1"> <%= link_to "Sign up", new_user_registration_path, class: "text-success" %> </button>
             <% else %>
+
               <a class="nav-link" >Benvenuto</a><%= current_user.nome %>&nbsp; &nbsp;
               <button class="btn btn-outline-success" href="1"> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-success" %> </button>
             
@@ -79,7 +86,6 @@
 
 
 
-<% if current_user.nil? %>
    <div class="container">
        
     <p class="lead big-padding">
@@ -87,38 +93,6 @@
    RubyOnFitness é un'iniziativa che nasce nel 2020 per l'esame di architetture software e sicurezza informatica, e si occupa della gestione web di una palestra situata nel quartiere Prati di Roma. Vieni a trovarci e prenota la tua lezione di prova! </div>
    
 
-              
-  <% else %>
-   <p class="lead big-padding">
-       <div class="container"> 
-<h2> Dati Personali </h2>
-<div class="shadow-lg p-3 mb-5 bg-white rounded">
-
-<div class="card mb-3" style="max-width: 100%;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      
-<%= image_tag(current_user.avatar_thumbnail) if current_user.avatar.attached? %> 
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"> <font color="#0000FF"> Nome: </font> <%= current_user.nome %> <font color="#0000FF"> <br>  Cognome: </font> <%= current_user.cognome %>   <font color="#0000FF"> <br>  Nato il: </font> <%= current_user.datanascita %> <font color="#0000FF">  <br>Email: </font>  <%= current_user.email %> <font color="#0000FF"> <br>  Telefono: </font> <%= current_user.sesso %> <font color="#0000FF"> <br> Indirizzo:  </font> <%= current_user.indirizzo %></h5>
-        <p class="card-text"> <font color="#0000FF"> Altezza:  </font> <%= current_user.altezza %>  <font color="#0000FF">  <br> Peso: </font> <%= current_user.peso %> Kg  </p><br>
-        <p class="card-text"><small class="text-muted"><font color="#0000FF">Sei iscritto dal : </font> <%= current_user.datasocio %> <br> <font color="#0000FF">il tuo tipo di abbonamento è: </font> <%= current_user.tipoabbonamento %> </small></p>
-      </div>
-    </div>
-  </div>
-</div>
-  
-<a type="button" class="btn btn-outline-success"   <%= link_to "Modifica dati profilo e password", edit_user_registration_path %>  </a> &nbsp; &nbsp;&nbsp; 
-<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Prenota Una lezione ", private_lessons_path %> </a>&nbsp; &nbsp;&nbsp; 
-
-<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Visualizza le tue Schede di allenamento", workout_plans_path %>  </a>
-</div>
-           <% end %>
- 
-   
-       
     
      <h2> Scopri i nostri corsi </h2>  </p>
     
