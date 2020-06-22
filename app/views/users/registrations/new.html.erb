@@ -27,12 +27,8 @@
               <a class="nav-link" <%= link_to "Info e Contatti", info_e_contatti_index_path %> </a>
             </li>
             <li class="nav-item ">
-        <li class="nav-item">
-      <a class="nav-link" <%= link_to "Scheda", workout_plans_path %> </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" <%= link_to "Profilo personale", personal_profile_index_path %> </a>
-    </li>            </li>
+              <a class="nav-link" <%= link_to "Scheda", workout_plans_path %> </a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Le attività
@@ -106,58 +102,11 @@ Sign up</h5>
 
 </div>
   <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome, autofocus: true, autocomplete: "nome" %> <br />
-  </div>
-
-  <div class="field">
-
-    <%= f.label :cognome %><br />
-    <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome" %> <br />
-  
-  </div>
-
-  <div class="field">
 
     <%= f.label :email %><br />
-    <%= f.text_field :email, autofocus: true, autocomplete: "email" %> <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %> <br />
   
   </div>
-
-  <div class="field">
-
-    <%= f.label :"data di nascita" %><br />
-    <%= f.date_field :datanascita, autofocus: true, autocomplete: "datanascita" %> <br />
-  
-  </div>
-
-  <div class="field">
-
-    <%= f.label :sesso %><br />
-    <%= f.select :sesso, ['', 'M', 'F'] %> <br />
-  
-  </div>
-  <div class="field">
-
-    <%= f.label :indirizzo %><br />
-    <%= f.text_field :indirizzo, autofocus: true, autocomplete: "indirizzo" %> <br />
-  
-  </div>
-
-  <div class="field">
-
-    <%= f.label :peso %><br />
-    <%= f.number_field :peso, autofocus: true, autocomplete: "peso" %> <br />
-  
-  </div>
-
-  <div class="field">
-
-    <%= f.label :altezza %><br />
-    <%= f.number_field :altezza, autofocus: true, autocomplete: "altezza" %> <br />
-  
-  </div>
-
 
   <div class="field">
     <%= f.label :password %>
@@ -171,13 +120,12 @@ Sign up</h5>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
- <br>
+ <bh>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-              
-<br>
+
 
 <%= render "users/shared/links" %>
 
