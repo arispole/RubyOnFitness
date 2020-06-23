@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/stile.css">
+</head>
+<body >
+    <div class='fixed-top'>
+    <div class="container">
+        
+     
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" <%= link_to "HOME", homepage_index_path %> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" <%= link_to "Info e Contatti", info_e_contatti_index_path %> </a>
+            </li>
+            <li class="nav-item ">
+ <% if current_user.nil? %>
+              
+  <% else %>
+    <a class="nav-link" <%= link_to "Scheda", workout_plans_path %> </a>
+           <% end %>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Le attività
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="">Action</a>
+                <a class="dropdown-item" href="">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+            </li>
+          </ul>
+    
+            <% if current_user.nil? %>
+              <button class="btn btn-outline-success" href="1"> <%= link_to "Log in", new_user_session_path, class: "text-success" %> </button> &nbsp;
+              <button class="btn btn-outline-success" href="1"> <%= link_to "Sign up", new_user_registration_path, class: "text-success" %> </button>
+            <% else %>
+              <a class="nav-link" >Benvenuto</a><%= current_user.nome %>&nbsp; &nbsp;
+              <button class="btn btn-outline-success" href="1"> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-success" %> </button>
+            
+           <% end %>
+            
+          </form>
+        </div>
+      </nav>
+    </div>
+    </div>
+
+    <div class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="assets/foto1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/foto2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/foto3.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="container">
+        <p class="lead big-padding">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <h3>Disponibilità lezioni private</h3>
+                <table id='privatelessons'>
+                    <thead>
+                        <tr>
+                            <th> Inizio </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%= @privatelessons.each do |privatelesson| %>
+                        <tr>
+                            <% if privatelesson.booked == true then %>
+                                <td> Prenotata </td>
+                            
+                            <% else %>
+                                <td> Disponibile </td>
+                            <% end %>
+
+                            <td> 
+                                <%= link_to 'Modifica', edit_private_lesson_path(privatelesson) %>
+                            </td>
+                            <td> 
+                                <%= link_to 'Cancella',  private_lesson_path(privatelesson), :method => :delete %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <%= link_to 'Aggiungi una nuova lezione privata', new_private_lesson_path %>
+            </div>
+        </p>
+    </div>
+
+
+
+
+
+
+
+
+</html>
