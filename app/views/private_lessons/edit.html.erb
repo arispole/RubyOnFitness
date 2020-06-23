@@ -1,11 +1,13 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/stile.css">
+    <link rel="stylesheet" href="../../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/stile.css">
 </head>
 <body >
     <div class='fixed-top'>
@@ -65,90 +67,44 @@
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                  <img src="assets/foto1.png" class="d-block w-100" alt="...">
+                  <img src="../../assets/foto1.png" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="assets/foto2.png" class="d-block w-100" alt="...">
+                <img src="../../assets/foto2.png" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="assets/foto3.png" class="d-block w-100" alt="...">
+                <img src="../../assets/foto3.png" class="d-block w-100" alt="...">
               </div>
             </div>
           </div>
     </div>
 
+    <div class="container">
+        <p class="lead big-padding">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <h3> Modifica lezione </h3>
+                    
 
 
-<% if current_user.nil? %>
-   <div class="container">
-       
-    <p class="lead big-padding">
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-   RubyOnFitness é un'iniziativa che nasce nel 2020 per l'esame di architetture software e sicurezza informatica, e si occupa della gestione web di una palestra situata nel quartiere Prati di Roma. Vieni a trovarci e prenota la tua lezione di prova! </div>
-   
-
-              
-  <% else %>
-   <p class="lead big-padding">
-       <div class="container"> 
-<h2> Dati Personali </h2>
-<div class="shadow-lg p-3 mb-5 bg-white rounded">
-
-<div class="card mb-3" style="max-width: 100%;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      
-
-      
-
-
-<%= image_tag(current_user.avatar_thumbnail) if current_user.avatar.attached? %> 
-<br><font color="#0000FF"> Nome: </font> <%= current_user.nome %> <font color="#0000FF"> <br>  Cognome: </font> <%= current_user.cognome %>   <font color="#0000FF"> <br>  Nato il: </font> <%= current_user.datanascita %> <font color="#0000FF">  <br>Email: </font>  <%= current_user.email %> <font color="#0000FF"> <br>  Telefono: </font> <%= current_user.sesso %> <font color="#0000FF"> <br> Indirizzo:  </font> <%= current_user.indirizzo %></h5>
-        <p class="card-text"> <font color="#0000FF"> Altezza:  </font> <%= current_user.altezza %>  <font color="#0000FF">  <br> Peso: </font> <%= current_user.peso %> Kg  </p><br>
-        <p class="card-text"><small class="text-muted"><font color="#0000FF">Sei iscritto dal : </font> <%= current_user.datasocio %> <br> <font color="#0000FF">il tuo tipo di abbonamento è: </font> <%= current_user.tipoabbonamento %> </small>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"> </p>
-   
-  <h3> Calcolo del proprio BMI </h3>
-            <%= form_with(url: calculate_path, method: 'get', local: true) do %>
-            <div class="form-group">
-                <%= label_tag :age, 'Inserisci la tua età:'%>
-                <%= number_field_tag :age, nil, placeholder: 'es: 25', class: 'form-control' %> <br>
-
-                <%= label_tag :age, 'Inserisci il tuo genere:'%>
-                <%= select_tag :sex, options_for_select(['','male', 'female']) %> <br>
-
-
-                <%= label_tag :height, 'Inserisci la tua altezza (in cm):'%>
-                <%= number_field_tag :height, nil, placeholder: 'es: 180', class: 'form-control' %>
-
-                <%= label_tag :weight, 'Inserisci il tuo peso (in kg):'%>
-                <%= number_field_tag :weight, nil, placeholder: 'es: 65', class: 'form-control' %>
-            </div>
-
-            <%= button_tag 'Calculate', class: 'btn btn-success btn-block' %>
-            <% end %>
-</div>
-
-    </div>
-  </div>
-</div>
-  
-<a type="button" class="btn btn-outline-success"   <%= link_to "Modifica dati profilo e password", edit_user_registration_path %>  </a> &nbsp; &nbsp;&nbsp; 
-<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Prenota Una lezione ", private_lessons_path %> </a>&nbsp; &nbsp;&nbsp; 
-
-<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Visualizza le tue Schede di allenamento", workout_plans_path %>  </a>
-</div>
-
-
-
-           <% end %>
  
-   
-       
+<%= form_tag private_lesson_path(@privatelesson), :method => :put do %>
+
+    <%= label :privatelesson, :inizio, 'Inizio' %>
+    <%= datetime_select :privatelesson, :inizio %>
     
+  &nbsp; &nbsp;  <%= submit_tag 'Salva modifiche' %> 
+<% end %>
+  </div>
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Torna alle lezioni private', private_lessons_path %> </a> 
+              
+
+
+  </div>
+
+
+     <div class="container">
+    <p class="lead big-padding">
+   
      <h2> Scopri i nostri corsi </h2>  </p>
     
     
@@ -160,8 +116,9 @@
   <div class="shadow-lg p-3 mb-5 bg-white rounded">
   <div class="card" style="width: 18rem;">
  
-  <img src="assets/yoga.jpg" class="card-img-top" alt="...">
+  <img src="../../assets/yoga.jpg" class="card-img-top" alt="...">
   <div class="card-body">
+
     <h5 class="card-title">Ritrova il tuo centro </h5>
     <p class="card-text">
 
@@ -187,7 +144,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="card" style="width: 18rem;">
    
-    <img src="assets/pilates.jpg" class="card-img-top" alt="...">
+    <img src="../../assets/pilates.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Ritrova la tua scioltezza </h5>
       <p class="card-text">
@@ -212,7 +169,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="card" style="width: 18rem;">
    
-    <img src="assets/waraku.jpg" class="card-img-top" alt="...">
+    <img src="../../assets/waraku.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Pratica il Budo della pace </h5>
       <p class="card-text">
@@ -239,7 +196,7 @@
     
     <div class="card" style="width: 18rem;">
     
-    <img src="assets/salapesi.jpg" class="card-img-top" alt="...">
+    <img src="../../assets/salapesi.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Gli spazi dedicati alla sala </h5>
       <p class="card-text">
@@ -263,7 +220,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="card" style="width: 18rem;">
    
-    <img src="assets/orientale.png" class="card-img-top" alt="...">
+    <img src="../../assets/orientale.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">La Danza Orientale</h5>
       <p class="card-text">
@@ -283,7 +240,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="card" style="width: 18rem;">
    
-    <img src="assets/niaaa.jpg" class="card-img-top" alt="...">
+    <img src="../../assets/niaaa.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Il Nia Fitness  </h5>
       <p class="card-text">
@@ -302,7 +259,7 @@
      
       <div class="container ">
       <p class="lead big-padding">
-      <a href="info_e_contatti"><img src="assets/prenota.png" class="d-block w-100" " ></a>
+      <a href="../../info_e_contatti"><img src="../../assets/prenota.png" class="d-block w-100" " ></a>
       </div>
   
         </div>
@@ -521,6 +478,7 @@ Contattaci e prenota la lezione di prova gratuita!
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="/assets/bootstrap.min.js"></script>
+    <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
+

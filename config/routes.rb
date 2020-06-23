@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/calculate' => 'homepage#calculate'
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   

@@ -103,9 +103,36 @@ Sign up</h5>
 </div>
   <div class="field">
 
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, autofocus: true, autocomplete: "nome" %> <br />
+  
+    <%= f.label :cognome %><br />
+    <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome" %> <br />
+  
+    <%= f.label :indirizzo %><br />
+    <%= f.text_field :indirizzo, autofocus: true, autocomplete: "indirizzo" %> <br />
+
+    <%= f.label :"data di nascita" %><br />
+    <%= f.date_field :datanascita, autofocus: true, autocomplete: "datanascita" %> <br />
+
+    <%= f.label :peso %><br />
+    <%= f.number_field :peso, autofocus: true, autocomplete: "peso" %> <br />
+
+    <%= f.label :altezza %><br />
+    <%= f.number_field :altezza, autofocus: true, autocomplete: "altezza" %> <br />
+  
+    <%= f.label :sesso %><br />
+    <%= f.select :sesso, ['', 'M', 'F'] %> <br />
+  
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %> <br />
-  
+
+    <%= f.label :"note particolari" %><br />
+    <%= f.text_field :varie, autofocus: true, autocomplete: "varie" %> <br />
+
+    <%= f.label :"tipo di abbonamento" %><br />
+    <%= f.select :tipoabbonamento, ['sala pesi', 'crossfit', 'piscina' ,'completo'] %> <br />
+
   </div>
 
   <div class="field">

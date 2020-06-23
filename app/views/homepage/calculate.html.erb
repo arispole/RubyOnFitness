@@ -111,26 +111,38 @@
       <div class="card-body">
         <h5 class="card-title"> </p>
    
-  <h3> Calcolo del proprio BMI </h3>
-            <%= form_with(url: calculate_path, method: 'get', local: true) do %>
-            <div class="form-group">
-                <%= label_tag :age, 'Inserisci la tua età:'%>
-                <%= number_field_tag :age, nil, placeholder: 'es: 25', class: 'form-control' %> <br>
 
-                <%= label_tag :age, 'Inserisci il tuo genere:'%>
-                <%= select_tag :sex, options_for_select(['','male', 'female']) %> <br>
-
-
-                <%= label_tag :height, 'Inserisci la tua altezza (in cm):'%>
-                <%= number_field_tag :height, nil, placeholder: 'es: 180', class: 'form-control' %>
-
-                <%= label_tag :weight, 'Inserisci il tuo peso (in kg):'%>
-                <%= number_field_tag :weight, nil, placeholder: 'es: 65', class: 'form-control' %>
-            </div>
-
-            <%= button_tag 'Calculate', class: 'btn btn-success btn-block' %>
-            <% end %>
+           <h3>Dati inseriti: </h3><br>
+            Età: <%= @age %> <br>
+            Altezza: <%= @height %><br>
+            Peso: <%= @weight %><br>
+            Genere: <%= @sex %><br>
+            <br>
+            <h4>BMI info</h4>
+            <dl>
+                <dt>Bmi:</dt>
+                <dd><%= @bmi['bmi'] %></dd>
+            </dl>
+            <dl>
+                <dt>Stato di salute fisica:
+                <dd><%= @bmi['health'] %></dd>
+            </dl>
+            <dl>
+                <dt> Range bmi ottimale:</dt>
+                <dd><%= @bmi['healthy_bmi_range'] %></dd>
+            </dl>
+            <dl>
+                <dt>Peso ideale:</dt>
+                <dd><%= @idealweight['Robinson'] %> &nbsp; Kg</dd>
+            </dl>
+       <br> <a type="button" class="btn btn-outline-success"  <%= link_to "Calcola nuovamente", homepage_index_path %> </a>
 </div>
+       <% end %>
+       
+    </div>
+     
+    
+
 
     </div>
   </div>
@@ -144,9 +156,11 @@
 
 
 
-           <% end %>
- 
-   
+      
+   <div class="container"> 
+      
+    <p class="lead big-padding">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
        
     
      <h2> Scopri i nostri corsi </h2>  </p>
@@ -524,3 +538,6 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/assets/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
