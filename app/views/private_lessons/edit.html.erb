@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,7 @@
     <link rel="stylesheet" href="../../assets/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/stile.css">
 </head>
-<body>
+<body >
     <div class='fixed-top'>
     <div class="container">
         
@@ -47,7 +49,7 @@
           </ul>
     
             <% if current_user.nil? %>
-              <button class="btn btn-outline-success" href="1"> <%= link_to "Log in", new_user_session_path %> </button> &nbsp;
+              <button class="btn btn-outline-success" href="1"> <%= link_to "Log in", new_user_session_path, class: "text-success" %> </button> &nbsp;
               <button class="btn btn-outline-success" href="1"> <%= link_to "Sign up", new_user_registration_path, class: "text-success" %> </button>
             <% else %>
               <a class="nav-link" >Benvenuto</a><%= current_user.nome %>&nbsp; &nbsp;
@@ -77,99 +79,28 @@
           </div>
     </div>
 
+    <div class="container">
+        <p class="lead big-padding">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <h3> Modifica lezione </h3>
+                    
 
-
-<% if current_user.nil? %>
-   <div class="container">
-       
-    <p class="lead big-padding">
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-    Nia (Neuromuscular Integrative Action) è un’attività di fusion fitness nata negli Stati Uniti negli anni ’80 e basata sull’unione armoniosa di diverse discipline quali la danza, le arti marziali,lo yoga. NIA sviluppa l’agilità delle arti marziali, l’armonia della danza e la flessibilità dello yoga attraverso un esercizio cardiovascolare completo che coinvolge corpo,mente ed emozioni.
-    Si basa sul principio della gioia nel movimento ed è un’attività divertente adatta a tutti senza bisogno di esperienza.
-    Il focus delle lezioni è raggiungere il benessere psicofisico attraverso un movimento naturale, basato sulla sensazione di piacere e sulla consapevolezza del proprio corpo.</div>
-   
-
-              
-  <% else %>
-   <p class="lead big-padding">
-       <div class="container"> 
-
-
-<h2> Dati Personali </h2>
-<div class="shadow-lg p-3 mb-5 bg-white rounded">
-<div class="card mb-3" style="max-width: 100%;">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="row no-gutters">
-
-    <div class="col-sm">
-       <%= image_tag(resource.avatar_thumbnail) %> <br/>
-  <%= f.file_field :avatar %>
-    </div>
-    <div class="col-sm">
-        <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-
-    </div>
-    <div class="col-sm">
-     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-  <% end %>
-
-    <%= f.label :password %> <br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %><br>
-   <i>(lascia bianco per non cambiare)</i>
-
-
- <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-
-
-      <br><em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-    </div>
- 
-   
-  </div>
 
  
+<%= form_tag private_lesson_path(@privatelesson), :method => :put do %>
 
-
-<br>
-    <%= f.label :current_password %> <br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-
-
-
-  <div class="actions">
-<i>(Inserisci password per confermare i cabiamenti)</i><br>
-    <%= f.submit "Aggiorna" %>
-  </div>
-
- </div>
-
-  <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a>
-  <% end %>
-</div>
-
-</div>
+    <%= label :privatelesson, :inizio, 'Inizio' %>
+    <%= datetime_select :privatelesson, :inizio %>
+    
+  &nbsp; &nbsp;  <%= submit_tag 'Salva modifiche' %> 
 <% end %>
-
-
-<!--
-
------------------------------------------------------------------------------------------------------------------------------------
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
   </div>
-</div>     
-    </div>
------------------------------------------------------------------------------------------------------------------------------------
--->
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Torna alle lezioni private', private_lessons_path %> </a> 
+              
+
+
+  </div>
+
 
      <div class="container">
     <p class="lead big-padding">
@@ -328,7 +259,7 @@
      
       <div class="container ">
       <p class="lead big-padding">
-      <a href="../info_e_contatti"><img src="../../assets/prenota.png" class="d-block w-100" " ></a>
+      <a href="../../info_e_contatti"><img src="../../assets/prenota.png" class="d-block w-100" " ></a>
       </div>
   
         </div>
@@ -550,3 +481,4 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
+
