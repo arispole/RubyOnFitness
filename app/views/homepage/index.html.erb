@@ -129,13 +129,13 @@
         <h3> Calcolo del proprio BMI </h3>
             <%= form_with(url: calculate_path, method: 'get', local: true) do %>
             <div class="form-group">
-                <%= label_tag :age, 'Insert your age'%>
+                <%= label_tag :age, 'Inserisci la tua età:'%>
                 <%= number_field_tag :age, nil, placeholder: 'es: 25', class: 'form-control' %>
 
-                <%= label_tag :height, 'Insert your height'%>
+                <%= label_tag :height, 'Inserisci la tua altezza:'%>
                 <%= number_field_tag :height, nil, placeholder: 'es: 65', class: 'form-control' %>
 
-                <%= label_tag :weight, 'Insert your weight'%>
+                <%= label_tag :weight, 'Inserisci il tuo peso:'%>
                 <%= number_field_tag :weight, nil, placeholder: 'es: 180', class: 'form-control' %>
             </div>
 
