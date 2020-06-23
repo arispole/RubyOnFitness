@@ -8,9 +8,10 @@ skip_before_action :authenticate_user!, :only => [:index]
 	def calculate
         @age = params[:age]
         @height = params[:height]
-        @weight = params[:weight]
+		@weight = params[:weight]
+		@sex = params[:sex]
         @bmi = request_api("https://fitness-calculator.p.rapidapi.com/bmi?age=#{URI.encode(@age)}&height=#{URI.encode(@height)}&weight=#{URI.encode(@weight)}")
-
+		@idealweight = request_api("https://fitness-calculator.p.rapidapi.com/idealweight?weight=#{URI.encode(@weight)}&gender=#{URI.encode(@sex)}&height=#{URI.encode(@height)}")
     end
 
 

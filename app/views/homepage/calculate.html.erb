@@ -85,7 +85,7 @@
             Età: <%= @age %> <br>
             Altezza: <%= @height %><br>
             Peso: <%= @weight %><br>
-
+            Genere: <%= @sex %><br>
             <br>
             <h4>BMI info</h4>
             <dl>
@@ -99,6 +99,10 @@
             <dl>
                 <dt>Healthy bmi range:</dt>
                 <dd><%= @bmi['healthy_bmi_range'] %></dd>
+            </dl>
+            <dl>
+                <dt>Peso ideale:</dt>
+                <dd><%= @idealweight['Miller'] %></dd>
             </dl>
         </div>
         </div>

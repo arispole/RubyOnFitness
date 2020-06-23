@@ -130,7 +130,11 @@
             <%= form_with(url: calculate_path, method: 'get', local: true) do %>
             <div class="form-group">
                 <%= label_tag :age, 'Inserisci la tua età:'%>
-                <%= number_field_tag :age, nil, placeholder: 'es: 25', class: 'form-control' %>
+                <%= number_field_tag :age, nil, placeholder: 'es: 25', class: 'form-control' %> <br>
+
+                <%= label_tag :age, 'Inserisci il tuo genere:'%>
+                <%= select_tag :sex, options_for_select(['','male', 'female']) %> <br>
+
 
                 <%= label_tag :height, 'Inserisci la tua altezza:'%>
                 <%= number_field_tag :height, nil, placeholder: 'es: 65', class: 'form-control' %>
