@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <link rel="stylesheet" href="assets/stile.css">
 </head>
-<body>
+<body >
     <div class='fixed-top'>
     <div class="container">
         
@@ -50,7 +50,7 @@
               <button class="btn btn-outline-success" href="1"> <%= link_to "Log in", new_user_session_path, class: "text-success" %> </button> &nbsp;
               <button class="btn btn-outline-success" href="1"> <%= link_to "Sign up", new_user_registration_path, class: "text-success" %> </button>
             <% else %>
-              <a class="nav-link" >Benvenuto</a><%= current_user.email %>&nbsp; &nbsp;
+              <a class="nav-link" >Benvenuto</a><%= current_user.nome %>&nbsp; &nbsp;
               <button class="btn btn-outline-success" href="1"> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-success" %> </button>
             
            <% end %>
@@ -78,35 +78,33 @@
     </div>
 
 
-<div class="container">
-       
-    <p class="lead big-padding">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-            RubyOnFitness é un'iniziativa che nasce nel 2020 per l'esame di architetture software e sicurezza informatica,
-            e si occupa della gestione web di una palestra situata nel quartiere Prati di Roma.
-            Vieni a trovarci e prenota la tua lezione di prova!
-        </div>
-    </p>
+    <!-- app/views/travel/index.html.erb -->
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+        <div class="mx-auto mt-5" style="width: 400px">
+            <%= form_with(url: calculate_path, method: 'get', local: true) do %>
+            <div class="form-group">
+                <%= label_tag :age, 'Insert your age'%>
+                <%= number_field_tag :age, nil, placeholder: 'es: 25', class: 'form-control' %>
 
-    <p class="lead big-padding">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-          <h3 align="center">Contatti </h3>
-            <p align="center"> 
-              Per informazioni aggiuntive o prenotazioni scrivere a: rubyonfitness@gmail.com<br>
-              O chiamare i responsabili: <br>
-              <li align="center">Nicola Colao: 333 456 7890</li>
-              <li align="center">Andrea Prodon: 327 111 0000</li>
-              <li align="center">Arianna Spoletini: 331 777 1234</li>
-            </p>
-        </div>
-    </p>
+                <%= label_tag :height, 'Insert your height'%>
+                <%= number_field_tag :height, nil, placeholder: 'es: 65', class: 'form-control' %>
 
-    <p class="lead big-padding">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-          <h3 align="center">Dove trovarci </h3>
-          <img src="assets/mappe.png" class="card-img-top" alt="...">
-            
+                <%= label_tag :weight, 'Insert your weight'%>
+                <%= number_field_tag :weight, nil, placeholder: 'es: 180', class: 'form-control' %>
+            </div>
+
+            <%= button_tag 'Calculate', class: 'btn btn-success btn-block' %>
+            <% end %>
         </div>
-    </p>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
 
 </html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <link rel="stylesheet" href="assets/stile.css">
 </head>
-<body>
+<body >
     <div class='fixed-top'>
     <div class="container">
         
@@ -50,7 +50,7 @@
               <button class="btn btn-outline-success" href="1"> <%= link_to "Log in", new_user_session_path, class: "text-success" %> </button> &nbsp;
               <button class="btn btn-outline-success" href="1"> <%= link_to "Sign up", new_user_registration_path, class: "text-success" %> </button>
             <% else %>
-              <a class="nav-link" >Benvenuto</a><%= current_user.email %>&nbsp; &nbsp;
+              <a class="nav-link" >Benvenuto</a><%= current_user.nome %>&nbsp; &nbsp;
               <button class="btn btn-outline-success" href="1"> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-success" %> </button>
             
            <% end %>
@@ -77,36 +77,32 @@
           </div>
     </div>
 
+    <div class="container">
+        
+        <p class="lead big-padding">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <h3>Dati inseriti: </h3><br>
+            Età: <%= @age %> <br>
+            Altezza: <%= @height %><br>
+            Peso: <%= @weight %><br>
 
-<div class="container">
-       
-    <p class="lead big-padding">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-            RubyOnFitness é un'iniziativa che nasce nel 2020 per l'esame di architetture software e sicurezza informatica,
-            e si occupa della gestione web di una palestra situata nel quartiere Prati di Roma.
-            Vieni a trovarci e prenota la tua lezione di prova!
-        </div>
-    </p>
+            <br><br>
+            <h4>BMI info</h4>
+            <dl>
+                <dt>Bmi:</dt>
+                <dd><%= @bmi['bmi'] %></dd>
+            </dl>
+            <dl>
+                <dt>Health:</dt>
+                <dd><%= @bmi['health'] %></dd>
+            </dl>
+            <dl>
+                <dt>Healthy bmi range:</dt>
+                <dd><%= @bmi['healthy_bmi_range'] %></dd>
+            </dl>
+            </div>
+        </p>
+    </div>
 
-    <p class="lead big-padding">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-          <h3 align="center">Contatti </h3>
-            <p align="center"> 
-              Per informazioni aggiuntive o prenotazioni scrivere a: rubyonfitness@gmail.com<br>
-              O chiamare i responsabili: <br>
-              <li align="center">Nicola Colao: 333 456 7890</li>
-              <li align="center">Andrea Prodon: 327 111 0000</li>
-              <li align="center">Arianna Spoletini: 331 777 1234</li>
-            </p>
-        </div>
-    </p>
-
-    <p class="lead big-padding">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-          <h3 align="center">Dove trovarci </h3>
-          <img src="assets/mappe.png" class="card-img-top" alt="...">
-            
-        </div>
-    </p>
 
 </html>
