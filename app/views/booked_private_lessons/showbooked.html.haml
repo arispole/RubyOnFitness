@@ -1,0 +1,20 @@
+%h1 Prenotazioni lezioni con personal trainer
+
+%table#privatelessons
+  
+  %thead
+    %tr
+      %th Personal Trainer
+      %th Orario  
+      %th      
+  %tbody
+    - @bookedprivatelessons.each do |bookedprivatelesson|
+      %tr
+        %td= User.find(bookedprivatelesson.private_lesson.user_id).nome + " " + User.find(bookedprivatelesson.private_lesson.user_id).cognome
+        %td= bookedprivatelesson.private_lesson.inizio 
+        %td= link_to 'Cancella', delete_private_path(bookedprivatelesson),  :method => :delete
+
+</div>
+#{link_to 'Prenota una lezione con il personal trainer', showall_private_lessons_path}
+</div>
+

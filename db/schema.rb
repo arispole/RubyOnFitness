@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_145018) do
+ActiveRecord::Schema.define(version: 2020_06_23_160517) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2020_06_20_145018) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "booked_group_lessons", force: :cascade do |t|
+    t.integer "group_lesson_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_lesson_id"], name: "index_booked_group_lessons_on_group_lesson_id"
+    t.index ["user_id"], name: "index_booked_group_lessons_on_user_id"
   end
 
   create_table "booked_private_lessons", force: :cascade do |t|
@@ -61,6 +70,18 @@ ActiveRecord::Schema.define(version: 2020_06_20_145018) do
     t.binary "pittogramma"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "group_lessons", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "nome"
+    t.text "descrizione"
+    t.integer "posti"
+    t.integer "posti_disponibili"
+    t.datetime "inizio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_group_lessons_on_user_id"
   end
 
   create_table "listasocis", force: :cascade do |t|
@@ -127,10 +148,13 @@ ActiveRecord::Schema.define(version: 2020_06_20_145018) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "booked_group_lessons", "group_lessons"
+  add_foreign_key "booked_group_lessons", "users"
   add_foreign_key "booked_private_lessons", "private_lessons"
   add_foreign_key "booked_private_lessons", "users"
   add_foreign_key "exercise_routines", "exercises"
   add_foreign_key "exercise_routines", "workout_plans"
+  add_foreign_key "group_lessons", "users"
   add_foreign_key "private_lessons", "users"
   add_foreign_key "workout_plans", "users"
 end

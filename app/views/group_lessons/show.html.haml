@@ -1,0 +1,36 @@
+%h3 Dettagli lezione di gruppo 
+
+%ul#details
+
+	%li
+		Nome:
+		= @grouplesson.nome
+
+	%li
+		Descrizione:
+		= @grouplesson.descrizione
+
+	%li
+		Posti:
+		= @grouplesson.posti
+
+	%li
+		Posti disponibili:
+		= @grouplesson.posti_disponibili
+
+
+Prenotata da:
+- if (@bookedlessons != nil)
+	%table#users
+  
+	%thead
+		%tr
+			%th 
+
+	%tbody
+		- @bookedlessons.each do |bookedlesson|
+			%tr
+				%td= User.find(bookedlesson.user_id).nome + " " + User.find(bookedlesson.user_id).cognome
+	
+
+#{link_to 'Torna alle lezioni di gruppo', group_lessons_path} - #{link_to 'Cancella',  group_lesson_path(@grouplesson), :method => :delete}

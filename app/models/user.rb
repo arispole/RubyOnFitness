@@ -40,6 +40,10 @@ class User < ApplicationRecord
     has_many :private_lessons, dependent: :destroy
     
     has_many :booked_private_lessons, dependent: :destroy
+    
+    has_many :group_lessons, dependent: :destroy
+    
+    has_many :booked_group_lessons, dependent: :destroy
          
 	def self.from_omniauth(auth)
 		where(id: auth["uid"]).first_or_create do |user|

@@ -1,0 +1,29 @@
+
+%h1 Disponibilità per lezioni di gruppo
+
+
+%table#grouplessons
+  
+  %thead
+    %tr
+      %th Nome
+      %th Descrizione
+      %th Posti totali
+      %th Posti prenotati
+      %th Inizio
+      %th
+      %th
+  %tbody
+    - @grouplessons.each do |grouplesson|
+      %tr
+        %td= grouplesson.nome
+        %td= grouplesson.descrizione
+        %td= grouplesson.posti
+        %td= grouplesson.posti_disponibili
+        %td= grouplesson.inizio
+        %td= link_to 'Modifica', edit_group_lesson_path(grouplesson)
+        %td= link_to 'Cancella',  group_lesson_path(grouplesson), :method => :delete
+
+</div>
+#{link_to 'Aggiungi una nuova lezione di gruppo', new_group_lesson_path}
+</div>

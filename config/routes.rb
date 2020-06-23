@@ -14,20 +14,33 @@ Rails.application.routes.draw do
     resources :private_lessons do 
 		collection do 
 			get 'showall'
-			get 'showbooked'
 		end
 	end
+	
+	resources :group_lessons do
+		collection do
+			get 'showall'
+		end
+	end
+	
+	post '/bookprivate/:id', to: 'booked_private_lessons#book', as: 'book_private'
 
-	post '/book/:id', to: 'booked_private_lessons#book', as: 'book'
+	delete  '/deleteprivate/:id', to: 'booked_private_lessons#destroy', as: 'delete_private'
+	
+	get '/bookedprivate', to: 'booked_private_lessons#showbooked', as: 'show_booked_private'
 
-	delete  '/delete/:id', to: 'booked_private_lessons#destroy', as: 'delete'
- 
-  #get di prova 
-  get ('/') => redirect('/homepage')
+	post '/bookgroup/:id', to: 'booked_group_lessons#book', as: 'book_group'
 
-  resources :info_e_contatti
-  resources :personal_profile
-  resources :homepage
-  resources :soci
+	delete  '/deletegroup/:id', to: 'booked_group_lessons#destroy', as: 'delete_group'
+	
+	get '/bookedgroup', to: 'booked_group_lessons#showbooked', as: 'show_booked_group'
+	
+	#get di prova 
+	get ('/') => redirect('/homepage')
+
+	resources :info_e_contatti
+	resources :personal_profile
+	resources :homepage
+	resources :soci
   
 end

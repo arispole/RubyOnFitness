@@ -18,7 +18,11 @@ class BookedPrivateLessonsController < ApplicationController
 		@bookedprivatelesson = BookedPrivateLesson.find(id)
 		@bookedprivatelesson.private_lesson.update_attribute(:booked, false)
 		@bookedprivatelesson.destroy
-		redirect_to showbooked_private_lessons_path
+		redirect_to show_booked_private_path
+	end
+	
+	def showbooked
+		@bookedprivatelessons = current_user.booked_private_lessons
 	end
 	
 end

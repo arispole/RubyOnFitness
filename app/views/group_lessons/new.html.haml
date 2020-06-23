@@ -1,0 +1,21 @@
+
+%h2 Crea una lezione di gruppo
+
+= form_tag group_lessons_path, :method => :post do
+
+    = label :grouplesson, :nome, 'Nome'
+    = text_field :grouplesson, :nome
+
+    = label :grouplesson, :descrizione, 'Descrizione'
+    = text_field :grouplesson, :descrizione
+
+    = label :grouplesson, :posti, 'Posti'
+    = text_field :grouplesson, :posti
+
+    = label :grouplesson, :posti_disponibili, 'Posti disponibili'
+    = text_field :grouplesson, :posti_disponibili
+
+    = label :grouplesson, :inizio, 'Inizio'
+    = datetime_select :grouplesson, :inizio
+    
+    = submit_tag 'Salva' 

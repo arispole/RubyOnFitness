@@ -1,0 +1,25 @@
+%h1 Prenota una lezione di gruppo
+
+
+%table#grouplessons
+  
+  %thead
+    %tr
+      %th Personal Trainer
+      %th Nome
+      %th Descrizione
+      %th Posti
+      %th Inizio
+      %th Durata
+      %th 
+  %tbody
+    - @grouplessons.each do |grouplesson|
+      %tr
+        %td= User.find(grouplesson.user_id).nome + " " + User.find(grouplesson.user_id).cognome
+        %td= grouplesson.nome
+        %td= grouplesson.descrizione
+        %td= grouplesson.posti
+        %td= grouplesson.inizio
+        %td 60 minuti
+        %td= link_to 'Prenota', book_group_path(grouplesson), :method => :post
+

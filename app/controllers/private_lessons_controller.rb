@@ -3,10 +3,6 @@ class PrivateLessonsController < ApplicationController
 	def showall
 		@privatelessons = PrivateLesson.where(booked: false)
 	end
-	
-	def showbooked
-		@bookedprivatelessons = current_user.booked_private_lessons
-	end
 
 	def index
 		@privatelessons = current_user.private_lessons

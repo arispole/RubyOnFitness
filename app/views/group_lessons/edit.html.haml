@@ -1,0 +1,17 @@
+%h2 Modifica lezione di gruppo
+ 
+= form_tag group_lesson_path(@grouplesson), :method => :put do
+
+    = label :grouplesson, :nome, 'Nome'
+    = text_field :grouplesson, :nome
+
+    = label :grouplesson, :descrizione, 'Descrizione'
+    = text_field :grouplesson, :descrizione
+
+    = label :grouplesson, :posti, 'Posti'
+    = text_field :grouplesson, :posti
+
+    = label :grouplesson, :inizio, 'Inizio'
+    = datetime_select :grouplesson, :inizio
+    
+    = submit_tag 'Salva modifiche' 

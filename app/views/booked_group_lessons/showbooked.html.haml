@@ -1,0 +1,26 @@
+%h1 Prenotazioni lezioni di gruppo
+
+%table#grouplessons
+  
+  %thead
+    %tr
+      %th Personal Trainer
+      %th Nome
+      %th Descrizione
+      %th Posti 
+      %th Durata  
+      %th      
+  %tbody
+    - @bookedgrouplessons.each do |bookedgrouplesson|
+      %tr
+        %td= User.find(bookedgrouplesson.group_lesson.user_id).nome + " " + User.find(bookedgrouplesson.group_lesson.user_id).cognome
+        %td= bookedgrouplesson.group_lesson.nome
+        %td= bookedgrouplesson.group_lesson.descrizione
+        %td= bookedgrouplesson.group_lesson.posti 
+        %td 1 ora
+        %td= link_to 'Cancella', delete_group_path(bookedgrouplesson),  :method => :delete
+
+</div>
+#{link_to 'Prenota una lezione di gruppo', showall_group_lessons_path}
+</div>
+

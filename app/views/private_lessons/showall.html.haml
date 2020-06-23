@@ -15,5 +15,5 @@
         %td= User.find(privatelesson.user_id).nome + " " + User.find(privatelesson.user_id).cognome
         %td= privatelesson.inizio
         %td 60 minuti
-        %td= link_to 'Prenota', book_path(privatelesson), :method => :post
+        %td= link_to 'Prenota', book_private_path(privatelesson), :method => :post
 
