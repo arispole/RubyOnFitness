@@ -121,10 +121,10 @@
                 <%= select_tag :sex, options_for_select(['','male', 'female']) %> <br>
 
 
-                <%= label_tag :height, 'Inserisci la tua altezza:'%>
+                <%= label_tag :height, 'Inserisci la tua altezza (in cm):'%>
                 <%= number_field_tag :height, nil, placeholder: 'es: 180', class: 'form-control' %>
 
-                <%= label_tag :weight, 'Inserisci il tuo peso:'%>
+                <%= label_tag :weight, 'Inserisci il tuo peso (in kg):'%>
                 <%= number_field_tag :weight, nil, placeholder: 'es: 65', class: 'form-control' %>
             </div>
 
