@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  root to: 'personal_profile#index'
   get '/calculate' => 'personal_profile#calculate'
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
