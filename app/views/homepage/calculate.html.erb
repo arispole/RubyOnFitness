@@ -77,10 +77,41 @@
           </div>
     </div>
 
-    <div class="container" align="center">
-        <div class="col-lg-12 mt-5">
-        <div class="mx-auto mt-5" style="width: 400px">
-        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+
+<% if current_user.nil? %>
+   <div class="container">
+       
+    <p class="lead big-padding">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+   RubyOnFitness é un'iniziativa che nasce nel 2020 per l'esame di architetture software e sicurezza informatica, e si occupa della gestione web di una palestra situata nel quartiere Prati di Roma. Vieni a trovarci e prenota la tua lezione di prova! </div>
+   
+
+              
+  <% else %>
+   <p class="lead big-padding">
+       <div class="container"> 
+<h2> Dati Personali </h2>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+<div class="card mb-3" style="max-width: 100%;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      
+
+      
+
+
+<%= image_tag(current_user.avatar_thumbnail) if current_user.avatar.attached? %> 
+<br><font color="#0000FF"> Nome: </font> <%= current_user.nome %> <font color="#0000FF"> <br>  Cognome: </font> <%= current_user.cognome %>   <font color="#0000FF"> <br>  Nato il: </font> <%= current_user.datanascita %> <font color="#0000FF">  <br>Email: </font>  <%= current_user.email %> <font color="#0000FF"> <br>  Telefono: </font> <%= current_user.sesso %> <font color="#0000FF"> <br> Indirizzo:  </font> <%= current_user.indirizzo %></h5>
+        <p class="card-text"> <font color="#0000FF"> Altezza:  </font> <%= current_user.altezza %>  <font color="#0000FF">  <br> Peso: </font> <%= current_user.peso %> Kg  </p><br>
+        <p class="card-text"><small class="text-muted"><font color="#0000FF">Sei iscritto dal : </font> <%= current_user.datasocio %> <br> <font color="#0000FF">il tuo tipo di abbonamento è: </font> <%= current_user.tipoabbonamento %> </small>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> </p>
+   
+
            <h3>Dati inseriti: </h3><br>
             Età: <%= @age %> <br>
             Altezza: <%= @height %><br>
@@ -93,17 +124,416 @@
                 <dd><%= @bmi['bmi'] %></dd>
             </dl>
             <dl>
-                <dt>Health:</dt>
+                <dt>Stato di salute fisica
                 <dd><%= @bmi['health'] %></dd>
             </dl>
             <dl>
-                <dt>Healthy bmi range:</dt>
+                <dt> Range:</dt>
                 <dd><%= @bmi['healthy_bmi_range'] %></dd>
             </dl>
-        </div>
-        </div>
-        </div>
+       <br> <a type="button" class="btn btn-outline-success"  <%= link_to "Calcola nuovamente", homepage_index_path %> </a>
+</div>
+       <% end %>
+       
+    </div>
+     
+    
+
+
+    </div>
+  </div>
+</div>
+  
+<a type="button" class="btn btn-outline-success"   <%= link_to "Modifica dati profilo e password", edit_user_registration_path %>  </a> &nbsp; &nbsp;&nbsp; 
+<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Prenota Una lezione ", private_lessons_path %> </a>&nbsp; &nbsp;&nbsp; 
+
+<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Visualizza le tue Schede di allenamento", workout_plans_path %>  </a>
+</div>
+
+
+
+      
+   <div class="container"> 
+      
+    <p class="lead big-padding">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+       
+    
+     <h2> Scopri i nostri corsi </h2>  </p>
+    
+    
+    <div class="row">
+
+    <div class="col-sm">
+       
+  
+  <div class="shadow-lg p-3 mb-5 bg-white rounded">
+  <div class="card" style="width: 18rem;">
+ 
+  <img src="assets/yoga.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Ritrova il tuo centro </h5>
+    <p class="card-text">
+
+    Lo YOGA è una pratica millenaria che agisce a livello psico-fisico apportando molteplici benefici all’organismo e rigenerando le energie dell’individuo. </p>
+    
+     
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#yoga">
+ Scopri di piu
+</button>
+
+
+      </div>
+       </div>
+     </div>     
     </div>
 
 
+
+
+    <div class="col-sm">
+         
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card" style="width: 18rem;">
+   
+    <img src="assets/pilates.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Ritrova la tua scioltezza </h5>
+      <p class="card-text">
+      Il pilates è un tipo di ginnastica che mira a sviluppare non solo il tono muscolare, ma anche il coordinamento, la postura  la fluidità e il rilassamento.
+ </p>
+      
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#pilates">
+ Scopri di piu
+</button>
+           
+
+</div>
+         </div>
+       </div>     
+      </div>
+  
+  
+
+    <div class="col-sm">
+          
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card" style="width: 18rem;">
+   
+    <img src="assets/waraku.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Pratica il Budo della pace </h5>
+      <p class="card-text">
+      
+      I movimenti del Waraku sono accompagnati da suoni: creano armonia, energia ed equilibrio nel corpo e nello spirito favorendo radicamento e centratura.
+      </p>
+     
+   <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#waraku">
+ Scopri di piu
+</button>
+                 
+    </div>
+         </div>
+       </div>     
+      </div>
+  
+      
+
+    <div class="col-sm">
+       
+ 
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    
+    <div class="card" style="width: 18rem;">
+    
+    <img src="assets/salapesi.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Gli spazi dedicati alla sala </h5>
+      <p class="card-text">
+      pesi sono interamente pensati per fornire una vasta gamma di scelte nel campo della tonificazione e dell’allenamento cardiovascolare.
+      </p>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#salapesi">
+ Scopri di piu
+</button>
+           </div>
+         </div>
+       </div>     
+      </div>
+  
+        
+  
+    <div class="col-sm">
+         
+  
+  
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card" style="width: 18rem;">
+   
+    <img src="assets/orientale.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">La Danza Orientale</h5>
+      <p class="card-text">
+       è un’arte antica le cui origini  risalgono ai culti religiosi della “madre terra” praticati nelle antiche società matriarcali della Mesopotamia.
+      </p>
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#danzaorientale">
+ Scopri di piu
+</button>
+           </div>
+         </div>
+       </div>     
+      </div>
+  
+    <div class="col-sm">
+          
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card" style="width: 18rem;">
+   
+    <img src="assets/niaaa.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Il Nia Fitness  </h5>
+      <p class="card-text">
+      
+   è un’attività di fusion fitness nata negli Stati Uniti  e basata sull’unione armoniosa di diverse discipline quali la danza, le arti marziali,lo yoga.
+       </p>
+   <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#nia">
+ Scopri di piu
+</button>
+           </div>
+         </div>
+       </div>     
+      </div>
+  
+     
+      <div class="container ">
+      <p class="lead big-padding">
+      <a href="info_e_contatti"><img src="assets/prenota.png" class="d-block w-100" " ></a>
+      </div>
+  
+        </div>
+  
+      </p>
+
+    
+      <p align="center"> 2020 RubyOnFitness. All Rights Reserved </p>
+      </div>
+  
+      
+  
+
+
+<!-- Modal yoga -->
+<!-- Scrollable modal -->
+
+
+
+<div class="modal fade" id="yoga" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hata Yoga</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-dialog modal-dialog-scrollable">
+       
+Lo Yoga è una pratica millenaria che agisce a livello psico-fisico apportando molteplici benefici all’organismo e rigenerando le energie dell’individuo.
+Hatha indica il sole “Ha” e la luna “Tha”, l’unione di questi due principi esprime simbolicamente l’energia vitale, la polarità maschile e femminile, lo Yin e lo Yang, che si incontrano nel Corpo Sottile.
+L’Hatha Yoga tramite una combinazione di esercizi, focalizzati sulla respirazione e sulle posizioni del corpo, consente di sviluppare un processo di ricerca interiore e di condurre l’individuo lungo il sentiero evolutivo.
+
+<br>
+
+Contattaci e prenota la lezione di prova gratuita!
+    
+ </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Idietro</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Pilates-->
+<div class="modal fade" id="pilates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pilates</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-dialog modal-dialog-scrollable">
+       
+Il pilates è un tipo di ginnastica che mira a sviluppare non solo il tono muscolare, ma anche il coordinamento, la postura e la fluidità.
+Lavorando sul respiro,la concentrazione,la coordinazione,il rischio è pressoché nullo di avere infortuni e grandi benefici per la schiena.
+La pratica consiste in esercizi a terra, che vengono eseguiti su un mat, un tappetino. È molto importante che l’istruttore sappia riconoscere limiti o difficoltà fisiche dell’allievo, sia in grado di scioglierle con la visualizzazione e il sostegno verbale. Vengono utilizzati anche degli accessori contemplati dalla disciplina: banda elastica, anello o cerchio magico, palla.
+Il metodo Pilates non è solo esercizio fisico, è anche coordinamento fisico e mentale, svolto con attrezzi studiati appositamente e sotto la supervisione di allenatori specializzati.
+<br>
+
+Contattaci e prenota la lezione di prova gratuita!
+    
+ </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Idietro</button>
+    
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Waraku-->
+<div class="modal fade" id="waraku" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Waraku</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-dialog modal-dialog-scrollable">
+Il Waraku è una disciplina sviluppata da Maeda Hiramasa Sensei, che è stato campione del Giappone di Karate Kyokushinkai ed ora membro del gruppo Shinto Oomoto, come lo era O-Sensei Ueshiba Morihei, fondatore dell’Aikido. Il Waraku è costutito da movimenti a spirale simili a quelli che si possono trovare nell’aikido e in altre arti tradizionali giapponesi, come il teatro No e la cerimonia del tè.
+
+I movimenti del Waraku sono accompagnati da suoni e si praticano con uno Tsurugi (spada di legno) o a mani vuote. Questi movimenti creano armonia, energia ed equilibrio nel corpo e nello spirito e favoriscono il radicamento e la centratura.
+
+Il Waraku non và considerata un’arte marziale da combattimento, ma, come l’Aikido un’arte di pace.
+
+Il motto del Waraku è:
+“Non ferire te stesso e gli altri Fai del bene agli altri e a te stesso”
+L’antico Budo : il Waraku
+
+
+<br>
+
+Contattaci e prenota la lezione di prova gratuita!
+    
+ </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Idietro</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal SalaPesi -->
+<!-- Scrollable modal -->
+
+
+
+<div class="modal fade" id="salapesi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sala Pesi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-dialog modal-dialog-scrollable">
+       
+Gli spazi dedicati alla sala pesi sono interamente pensati per fornire una vasta gamma di scelte nel campo della tonificazione e dell’allenamento cardiovascolare. Forniamo un attento e personalizzato piano di allenamento per ogni tipo di esigenza, grazie alla presenza del nostro personal trainer in sala possiamo studiare una strategia mirata per fornire il giusto approccio al movimento a seconda del livello di allenamento e degli obbiettivi che si vogliono raggiungere.
+
+<br>
+
+Contattaci e prenota la lezione di prova gratuita!
+    
+ </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Idietro</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Danza Orientale -->
+<!-- Scrollable modal -->
+
+
+
+<div class="modal fade" id="danzaorientale" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Danza Orientale</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-dialog modal-dialog-scrollable">
+La Danza Orientale, in lingua originale Raks Sharqi, e in italiano danza orientale, è un’arte antica le cui origini pare risalgano ai culti religiosi della “madre terra” praticati nelle antiche società matriarcali della Mesopotamia.
+Usata in passato per propiziare la fertilità e celebrare il parto era l’elemento essenziale delle festività agricole: con la danza si chiedeva agli dei il buon esito del raccolto ed è stata tramandata e reinventata nei secoli fino a diventare patrimonio etnico delle popolazioni del sud del mediterraneo, fino alla Turchia e in parte alla Grecia.
+La Danza Orientale era quindi praticata dalle donne per le donne, che in un clima sereno di amicizia e complicità ringraziavano gli dei danzando.
+
+Obiettivo delle lezioni è quello di sviluppare una danza che sia tecnicamente forte e precisa sia per quanto riguarda la postura che per i movimenti di isolamento e spostamento. 
+Il risultato che si otterrà giorno per giorno sarà l’acquisizione di fluidità ed eleganza nell’espressione artistica.
+
+La dolcezza dei movimenti fa si che non ci siano limiti di età per iniziare un cammino alla scoperta del proprio corpo e dei misteri di questa danza millenaria considerata la danza più antica del mondo.
+
+<br>
+
+Contattaci e prenota la lezione di prova gratuita!
+    
+ </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Idietro</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal NIAFITTNESS -->
+<!-- Scrollable modal -->
+
+
+
+<div class="modal fade" id="nia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nia Fitness</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-dialog modal-dialog-scrollable" >
+
+Nia (Neuromuscular Integrative Action) è un’attività di fusion fitness nata negli Stati Uniti negli anni ’80 e basata sull’unione armoniosa di diverse discipline quali la danza, le arti marziali,lo yoga. NIA sviluppa l’agilità delle arti marziali, l’armonia della danza e la flessibilità dello yoga attraverso un esercizio cardiovascolare completo che coinvolge corpo,mente ed emozioni.
+Si basa sul principio della gioia nel movimento ed è un’attività divertente adatta a tutti senza bisogno di esperienza.
+Il focus delle lezioni è raggiungere il benessere psicofisico attraverso un movimento naturale, basato sulla sensazione di piacere e sulla consapevolezza del proprio corpo.
+
+
+<br>
+
+Contattaci e prenota la lezione di prova gratuita!
+    
+ </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Idietro</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
+</body>
 </html>
+
+
+
