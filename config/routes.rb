@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/calculate' => 'personal_profile#calculate'
+  get '/calculate' => 'homepage#calculate'
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
