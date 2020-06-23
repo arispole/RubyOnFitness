@@ -137,7 +137,7 @@
       <%= f.label :"note particolari" %><br />
     <%= f.text_field :varie, autofocus: true, autocomplete: "varie" %> <br />
     <%= f.label :sesso %><br />
-    <%= f.select :sesso, ['', 'M', 'F'] %> <br />
+    <%= f.select :sesso, ['M', 'F'] %> <br />
   
 
 
@@ -146,6 +146,7 @@
 
     <%= f.label :"tipo di abbonamento" %><br />
     <%= f.select :tipoabbonamento, ['sala pesi', 'crossfit', 'piscina' ,'completo'] %> <br />
+
 
 
      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -182,11 +183,11 @@
 <i><font color="#FF0000"> <br> ATTENZIONE <br> Inserisci password qui sopra per confermare i cabiamenti </font></i><br>
     <%= f.submit "Aggiorna" %>
   </div>
-
+  <% end %>
  </div>
 
   <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a>
-  <% end %>
+  
 </div>
 
 </div>
@@ -206,6 +207,8 @@
     </div>
 -----------------------------------------------------------------------------------------------------------------------------------
 -->
+
+
 
      <div class="container">
     <p class="lead big-padding">

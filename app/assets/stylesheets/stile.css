@@ -3,7 +3,7 @@ padding-top: 55px;
 }
 
 h1 {
-    color: white;
+    color: FF0000;
     text-align: center;
   }
   
@@ -13,3 +13,9 @@ h1 {
   }
 
 .big-padding{padding: 6 px 0;}
+
+
+.flash {
+ color: FF0000;
+    text-align: center;
+}
