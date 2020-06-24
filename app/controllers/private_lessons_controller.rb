@@ -1,17 +1,17 @@
 class PrivateLessonsController < ApplicationController
 
 	def showall
-		@privatelessons = PrivateLesson.where(booked: false)
+		@privatelessons = authorize PrivateLesson.where(booked: false)
 	end
 
 	def index
-		@privatelessons = current_user.private_lessons
+		@privatelessons = authorize current_user.private_lessons
 	end
 	
 	def show
 		id = params[:id]
 		if PrivateLesson.exists?(id)
-			@privatelesson = PrivateLesson.find(id)
+			@privatelesson = authorize PrivateLesson.find(id)
 			@member = nil
 			if (@privatelesson.booked != false)
 				@member = (@privatelesson.booked_private_lesson).user_id
@@ -27,6 +27,7 @@ class PrivateLessonsController < ApplicationController
 	
 	def create
         @privatelesson = current_user.private_lessons.new(params[:privatelesson].permit!) 
+        authorize @privatelesson
         if @privatelesson.save
             flash[:notice] = "Lezione aggiunta"
             redirect_to private_lessons_path
@@ -38,19 +39,19 @@ class PrivateLessonsController < ApplicationController
 	
 	def edit
 		id = params[:id]
-		@privatelesson = PrivateLesson.find(id)
+		@privatelesson = authorize PrivateLesson.find(id)
 	end
 	
 	def update 
 		id = params[:id]
-		@privatelesson = PrivateLesson.find(id)
+		@privatelesson = authorize PrivateLesson.find(id)
 		@privatelesson.update_attributes!(params[:privatelesson].permit(:inizio))
 		redirect_to private_lesson_path(@privatelesson)
 	end
 	
 	def destroy
 		id = params[:id]
-		@privatelesson = PrivateLesson.find(id)
+		@privatelesson = authorize PrivateLesson.find(id)
 		@privatelesson.destroy
 		redirect_to private_lessons_path
 	end
