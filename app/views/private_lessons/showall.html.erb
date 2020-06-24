@@ -79,30 +79,43 @@
           </div>
     </div>
 
-    <div class="container">
-    <h3>  Prenota una lezione privata </h3>
-                    
-        <p class="lead big-padding">
-            <div class="shadow-lg p-3 mb-5 bg-white rounded">
-             Personal Trainer &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Inizio &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Durata <br>   
-      
-     
-    <% @privatelessons.each do |privatelesson| %>
-    
-        <%= User.find(privatelesson.user_id).nome %>  <%= User.find(privatelesson.user_id).cognome%> &nbsp; &nbsp;&nbsp; &nbsp; 
-       
-        <%= privatelesson.inizio %>
-       &nbsp; &nbsp;&nbsp; &nbsp;  60 minuti &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-    <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_private_path(privatelesson), :method => :post  %> </a>  <br>    
-<% end %>
-  </div>
 
-              
-  <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
 
-  </div>
+<div class="container">
 
-  </div>
+    <p class="lead big-padding">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            
+
+    <h3>Prenota una lezione privata</h3>
+    <table id='group_lessons'>
+      <thead>
+          <tr>
+              <th>Personal Trainer &nbsp;&nbsp;&nbsp;&nbsp;</th> 
+              <th>Inizio &nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th>Durata &nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+          </tr> 
+      </thead>
+      <tbody>
+          <% @privatelessons.each do |privatelesson| %>
+            <tr> 
+              <td> <%= User.find(privatelesson.user_id).nome %>  <%= User.find(privatelesson.user_id).cognome%> </td>
+              <td> <%= privatelesson.inizio %> </td>
+              <td> 60 min. </td>
+              <td> <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_private_path(privatelesson), :method => :post  %> </a> </td>
+            </tr> 
+          <% end %>
+      </tbody>
+    </table>
+    <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
+        </div>
+      </div>
+    </p>
+
+
+
+
 
 
      <div class="container">
