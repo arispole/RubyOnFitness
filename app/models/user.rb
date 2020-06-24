@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, :omniauth_providers => [ :facebook, :google_oauth2]
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
    #avatar   
     has_one_attached :avatar         
     after_commit :add_default_avatar, on: %i[create update]
@@ -46,7 +46,7 @@ class User < ApplicationRecord
     has_many :booked_group_lessons, dependent: :destroy
          
 	def self.from_omniauth(auth)
-		where(id: auth["uid"]).first_or_create do |user|
+		where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 			user.email = auth.info.email
 			user.password = Devise.friendly_token[0,34]
 		end
@@ -59,5 +59,6 @@ class User < ApplicationRecord
 			end
 		end
 	end
+	
 	
 end
