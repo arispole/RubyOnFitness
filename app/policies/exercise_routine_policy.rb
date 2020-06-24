@@ -9,15 +9,15 @@ class ExerciseRoutinePolicy < ApplicationPolicy
   end
   
   def edit?
-	user.user_role? && @record.user_id == user.id
+	user.user_role? && WorkoutPlan.find(@record.workout_plan_id).user_id == user.id
   end
   
   def update?
-	user.user_role? && @record.user_id == user.id
+	user.user_role? && WorkoutPlan.find(@record.workout_plan_id).user_id == user.id
   end
   
   def destroy?
-	user.user_role? && @record.user_id == user.id
+	user.user_role? && WorkoutPlan.find(@record.workout_plan_id).user_id == user.id
   end
  
 end
