@@ -88,13 +88,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <%= @privatelessons.each do |privatelesson| %>
+                        <% @privatelessons.each do |privatelesson| %>
                         <tr>
                             <% if privatelesson.booked == true then %>
                                 <td> Prenotata </td>
                             
                             <% else %>
-                                <td>   <%= privatelesson.inizio %> &nbsp; &nbsp; Lezione prenotata !   </td>
+                                <td>   <%= privatelesson.inizio %> &nbsp; &nbsp; Disponibile  </td>
                             <% end %>
 
                             <td> 
@@ -114,7 +114,8 @@
        
   
             </div>
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Aggiungi una nuova lezione privata', new_private_lesson_path %> </a>   
+    <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> &nbsp; &nbsp; 
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Aggiungi una nuova lezione privata', new_private_lesson_path %> </a> 
         </p>
     </div>
 
