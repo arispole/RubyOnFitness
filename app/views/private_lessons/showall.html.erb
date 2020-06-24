@@ -89,7 +89,8 @@
      
     <% @privatelessons.each do |privatelesson| %>
     
-        <%= User.find(privatelesson.user_id).nome + " " + User.find(privatelesson.user_id).cognome%> &nbsp; &nbsp;&nbsp; &nbsp; 
+        <%= User.find(privatelesson.user_id).nome %>  <%= User.find(privatelesson.user_id).cognome%> &nbsp; &nbsp;&nbsp; &nbsp; 
+       
         <%= privatelesson.inizio %>
        &nbsp; &nbsp;&nbsp; &nbsp;  60 minuti &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
     <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_private_path(privatelesson), :method => :post  %> </a>  <br>    
