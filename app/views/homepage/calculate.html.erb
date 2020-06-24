@@ -135,7 +135,9 @@
                 <dt>Peso ideale:</dt>
                 <dd><%= @idealweight['Robinson'] %> &nbsp; Kg</dd>
             </dl>
-       <br> <a type="button" class="btn btn-outline-success"  <%= link_to "Calcola nuovamente", homepage_index_path %> </a>
+       <br> <a type="button" class="btn btn-outline-success"  <%= link_to "Calcola nuovamente", homepage_index_path %> </a> <br>
+
+<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Visualizza le tue Schede di allenamento", workout_plans_path %>  </a>
 </div>
        <% end %>
        
@@ -147,11 +149,11 @@
     </div>
   </div>
 </div>
-  
-<a type="button" class="btn btn-outline-success"   <%= link_to "Modifica dati profilo e password", edit_user_registration_path %>  </a> &nbsp; &nbsp;&nbsp; 
-<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Prenota Una lezione ", private_lessons_path %> </a>&nbsp; &nbsp;&nbsp; 
+<a type="button" class="btn btn-outline-warning"   <%= link_to "Modifica dati profilo e password", edit_user_registration_path %>  </a> &nbsp; &nbsp;&nbsp; 
+ <a align="center" type="button" class="btn btn-outline-success"  <%= link_to "Prenota lezione Privata", showall_private_lessons_path %>  </a><a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Prenota lezione Di gruppo", showall_group_lessons_path %>   </a><a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Vedi le lezioni Privata", show_booked_private_path %>   </a><a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Vedi le lezioni Di gruppo", show_booked_group_path %>   </a>
+ 
 
-<a align="center" type="button" class="btn btn-outline-success"   <%= link_to "Visualizza le tue Schede di allenamento", workout_plans_path %>  </a>
+
 </div>
 
 
