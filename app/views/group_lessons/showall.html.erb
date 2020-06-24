@@ -82,37 +82,43 @@
     </div>
 
     <div class="container">
-    <h3>  Prenota una lezione di gruppo </h3>
-                    
-        <p class="lead big-padding">
-            <div class="shadow-lg p-3 mb-5 bg-white rounded">
-             Personal Trainer &nbsp; &nbsp;&nbsp; &nbsp; Nome &nbsp;&nbsp; Descrizione &nbsp;&nbsp; &nbsp;
-      Posti &nbsp;&nbsp; &nbsp;
-      Inizio &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp Durata <br>   
-      
-     
-    <% @grouplessons.each do |grouplesson| %>
-    
-        <%= User.find(grouplesson.user_id).nome %>  <%= User.find(grouplesson.user_id).cognome%>&nbsp; &nbsp;&nbsp; &nbsp; 
-       
-<%= grouplesson.nome %>&nbsp; &nbsp;&nbsp;
-<%= grouplesson.descrizione %> &nbsp; &nbsp;&nbsp;
-<%= grouplesson.posti %>&nbsp; &nbsp;&nbsp;
-      <%= grouplesson.inizio %>
-       &nbsp; &nbsp;&nbsp; &nbsp;  60 minuti &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-    <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_group_path(grouplesson), :method => :post   %> </a>  <br>    
-<% end %>
+
+    <p class="lead big-padding">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            
+
+    <h3>Prenota una lezione di gruppo</h3>
+    <table id='group_lessons'>
+    <thead>
+        <tr>
+            <th>Personal Trainer &nbsp;&nbsp;&nbsp;&nbsp;</th> 
+            <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;</th> 
+            <th>Descrizione &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Posti &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Inizio &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Durata &nbsp;&nbsp;&nbsp;&nbsp;</th>
+        </tr> 
+    </thead>
+    <tbody>
+        <% @grouplessons.each do |grouplesson| %>
+        <tr> 
+            <td> <%= User.find(grouplesson.user_id).nome %>  <%= User.find(grouplesson.user_id).cognome%> </td>
+            <td> <%= grouplesson.nome %> </td>
+            <td> <%= grouplesson.descrizione %> </td>
+            <td> <%= grouplesson.posti %> </td>
+            <td> <%= grouplesson.inizio %> </td>
+            <td> 60 min. </td>
+            <td> <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_group_path(grouplesson), :method => :post   %> </a> </td>
+        </tr> 
+        <% end %>
+    </tbody>
+    </table>
+    <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
   </div>
-  <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
-
-      
 
 
-
-  </div>
-
-  </div>
-
+        </div>
+    </p>
 
      <div class="container">
     <p class="lead big-padding">
