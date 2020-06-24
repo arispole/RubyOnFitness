@@ -90,7 +90,7 @@
      
     <% @bookedgrouplessons.each do |bookedgrouplesson| %>
     
-        <%= User.find(bookedgrouplesson.group_lesson.user_id).nome + " " + User.find(bookedgrouplesson.group_lesson.user_id).cognome %>&nbsp; &nbsp;&nbsp; &nbsp; 
+        <%= User.find(bookedgrouplesson.group_lesson.user_id).nome %>  <%= User.find(bookedgrouplesson.group_lesson.user_id).cognome %>&nbsp; &nbsp;&nbsp; &nbsp; 
         <%= bookedgrouplesson.group_lesson.nome %> &nbsp; &nbsp;&nbsp; &nbsp;  
        <%= bookedgrouplesson.group_lesson.descrizione %>
        &nbsp; &nbsp;&nbsp; &nbsp; 
