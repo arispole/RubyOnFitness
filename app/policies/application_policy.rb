@@ -8,6 +8,8 @@ class ApplicationPolicy
   
   def rails_admin?(action)
     case action
+	  when :create
+		user.admin_role?
       when :dashboard
         user.admin_role?
       when :index
