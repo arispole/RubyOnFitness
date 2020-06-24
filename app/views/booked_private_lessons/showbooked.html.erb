@@ -80,6 +80,50 @@
           </div>
     </div>
 
+
+  <div class="container">
+
+    <p class="lead big-padding">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            
+
+        <h3>Prenotazioni effettuate con Personal Trainer</h3>
+        <table id='booked_private_lessons'>
+          <thead>
+              <tr>
+                  <th>Personal Trainer &nbsp;&nbsp;&nbsp;&nbsp;</th> 
+                  <th>Orario &nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+              </tr> 
+          </thead>
+          <tbody>
+              <% @bookedprivatelessons.each do |bookedprivatelesson| %>
+                <tr> 
+                  <td> <%= User.find(bookedprivatelesson.private_lesson.user_id).nome %> <%= User.find(bookedprivatelesson.private_lesson.user_id).cognome %> </td>
+                  <td> <%= bookedprivatelesson.private_lesson.inizio %> </td>
+                  <td> <a type="button" class="btn btn-outline-danger"   <%= link_to 'Cancella', delete_private_path(bookedprivatelesson),  :method => :delete %> </a> </td>
+                </tr> 
+              <% end %>
+          </tbody>
+        </table>
+        <br>
+        <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
+      
+      </div>
+    </p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="container">
     <h3>  Prenotazioni effettuate con personal trainer </h3>
                     
@@ -97,23 +141,21 @@
   &nbsp; &nbsp;&nbsp; &nbsp;  <a type="button" class="btn btn-outline-danger"   <%= link_to 'Cancella', delete_private_path(bookedprivatelesson),  :method => :delete %> </a>  <br>    
 <% end %>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-              
+       
   <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> &nbsp; &nbsp;&nbsp; &nbsp; 
   <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota una lezione con il personal trainer', showall_private_lessons_path%>  </a> 
   </div>
 
   </div>
+
+
+
+
+
+
+
+
+
 
 
      <div class="container">
