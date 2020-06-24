@@ -10,6 +10,8 @@ class ApplicationPolicy
     case action
 	  when :create
 		user.admin_role?
+	  when :update
+		user.admin_role?
       when :dashboard
         user.admin_role?
       when :index
