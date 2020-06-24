@@ -82,22 +82,25 @@
     <div class="container">
         <p class="lead big-padding">
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                <h3> Modifica lezione </h3>
+                <h3> Dettagli lezione privata </h3>
                     
 
+		Inizio
+		
+	
+		Prenotata da
+        
+		<% if (@bookedlessons != nil) %> 
+			<%= @bookedlessons.nome %>
 
- 
-<%= form_tag private_lesson_path(@privatelesson), :method => :put do %>
-
-    <%= label :privatelesson, :inizio, 'Inizio' %>
-    <%= datetime_select :privatelesson, :inizio %>
-    
-  &nbsp; &nbsp;  <%= submit_tag 'Salva modifiche' %> 
-<% end %>
+        <% end %>
+      
   </div>
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro', private_lessons_path %> </a> 
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro', group_lessons_path %> </a> 
               
 
+
+  </div>
 
   </div>
 
@@ -259,7 +262,7 @@
      
       <div class="container ">
       <p class="lead big-padding">
-      <a href="../../info_e_contatti"><img src="../../assets/prenota.png" class="d-block w-100" " ></a>
+      <a href="../info_e_contatti"><img src="../../assets/prenota.png" class="d-block w-100" " ></a>
       </div>
   
         </div>
@@ -481,4 +484,6 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
+
+
 

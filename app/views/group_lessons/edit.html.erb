@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,15 +88,29 @@
 
 
  
-<%= form_tag private_lesson_path(@privatelesson), :method => :put do %>
+<%= form_tag group_lesson_path(@grouplesson), :method => :put do %>
 
-    <%= label :privatelesson, :inizio, 'Inizio' %>
-    <%= datetime_select :privatelesson, :inizio %>
+    <%= label :grouplesson, :nome, 'Nome' %>
+    <%= text_field :grouplesson, :nome %>
+
+    <%= label :grouplesson, :descrizione, 'Descrizione' %>
+    <%= text_field :grouplesson, :descrizione %>
+
+    <%= label :grouplesson, :posti, 'Posti' %>
+    <%= text_field :grouplesson, :posti %> <br>
+
+    <%= label :grouplesson, :inizio, 'Inizio' %>
+    <%= datetime_select :grouplesson, :inizio %>
     
   &nbsp; &nbsp;  <%= submit_tag 'Salva modifiche' %> 
 <% end %>
   </div>
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro', private_lessons_path %> </a> 
+
+
+
+   
+
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro', group_lessons_path %> </a> 
               
 
 
@@ -481,4 +496,10 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 

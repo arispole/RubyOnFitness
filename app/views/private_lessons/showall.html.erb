@@ -84,12 +84,12 @@
                     
         <p class="lead big-padding">
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
-             Personal Trainer &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Inizio &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp Durata <br>   
+             Personal Trainer &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Inizio &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Durata <br>   
       
      
     <% @privatelessons.each do |privatelesson| %>
     
-        <%= User.find(privatelesson.user_id).nome + "           " + User.find(privatelesson.user_id).cognome %>&nbsp; &nbsp;&nbsp; &nbsp; 
+        <%= User.find(privatelesson.user_id).nome + " " + User.find(privatelesson.user_id).cognome%> &nbsp; &nbsp;&nbsp; &nbsp; 
         <%= privatelesson.inizio %>
        &nbsp; &nbsp;&nbsp; &nbsp;  60 minuti &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
     <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_private_path(privatelesson), :method => :post  %> </a>  <br>    

@@ -1,5 +1,8 @@
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,20 +85,43 @@
     <div class="container">
         <p class="lead big-padding">
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                <h3> Modifica lezione </h3>
+                <h3> Crea una lezione di gruppo</h3>
                     
 
 
- 
-<%= form_tag private_lesson_path(@privatelesson), :method => :put do %>
 
-    <%= label :privatelesson, :inizio, 'Inizio' %>
-    <%= datetime_select :privatelesson, :inizio %>
+ 
+<%= form_tag group_lessons_path, :method => :post do %>
+
+    <%= label :grouplesson, :nome, 'Nome' %>
+    <%= text_field :grouplesson, :nome %>
+
+    <%= label :grouplesson, :descrizione, 'Descrizione' %>
+    <%= text_field :grouplesson, :descrizione%>
+
+    <%= label :grouplesson, :posti, 'Posti' %>
+    <%= text_field :grouplesson, :posti %>
+
+   <br> <%= label :grouplesson, :posti_disponibili, 'Posti disponibili' %>
+    <%= text_field :grouplesson, :posti_disponibili %>
     
-  &nbsp; &nbsp;  <%= submit_tag 'Salva modifiche' %> 
+    <%= label :grouplesson, :inizio, 'Inizio' %>
+    <%= datetime_select :grouplesson, :inizio %>
+ &nbsp; &nbsp;   <%= submit_tag 'Salva ' %> 
 <% end %>
-  </div>
-<a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro', private_lessons_path %> </a> 
+  
+
+
+
+
+
+
+   
+
+
+
+</div>
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Torna alle lezioni private', group_lessons_path %> </a> 
               
 
 
@@ -481,4 +507,5 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
+
 
