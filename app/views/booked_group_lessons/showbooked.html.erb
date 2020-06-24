@@ -80,43 +80,49 @@
           </div>
     </div>
 
-    <div class="container">
-    <h3>  Prenotazioni effettuate delle lezioni di gruppo </h3>
-                    
-        <p class="lead big-padding">
-            <div class="shadow-lg p-3 mb-5 bg-white rounded">
-             Personal Trainer &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; nome &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Descrizione  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; posti &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; durata<br>   
-      
-     
-    <% @bookedgrouplessons.each do |bookedgrouplesson| %>
-    
-        <%= User.find(bookedgrouplesson.group_lesson.user_id).nome %>  <%= User.find(bookedgrouplesson.group_lesson.user_id).cognome %>&nbsp; &nbsp;&nbsp; &nbsp; 
-        <%= bookedgrouplesson.group_lesson.nome %> &nbsp; &nbsp;&nbsp; &nbsp;  
-       <%= bookedgrouplesson.group_lesson.descrizione %>
-       &nbsp; &nbsp;&nbsp; &nbsp; 
-       &nbsp; &nbsp;&nbsp; &nbsp;  <%= bookedgrouplesson.group_lesson.posti %>
-       &nbsp; &nbsp;&nbsp; &nbsp;
-       &nbsp; &nbsp;&nbsp; &nbsp;  60 minuti 
-  &nbsp; &nbsp;&nbsp; &nbsp;  <a type="button" class="btn btn-outline-danger"   <%= link_to 'Cancella', delete_group_path(bookedgrouplesson),  :method => :delete %> </a>  <br>    
-<% end %>
+
+
+ <div class="container">
+
+    <p class="lead big-padding">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            
+
+    <h3>Prenota una lezione di gruppo</h3>
+    <table id='group_lessons'>
+    <thead>
+        <tr>
+            <th>Personal Trainer &nbsp;&nbsp;&nbsp;&nbsp;</th> 
+            <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;</th> 
+            <th>Descrizione &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Posti &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Inizio &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Durata &nbsp;&nbsp;&nbsp;&nbsp;</th>
+        </tr> 
+    </thead>
+    <tbody>
+        <% @bookedgrouplessons.each do |bookedgrouplesson| %>
+        <tr> 
+            <td> <%= User.find(bookedgrouplesson.group_lesson.user_id).nome %>  <%= User.find(bookedgrouplesson.group_lesson.user_id).cognome %> </td>
+            <td> <%= bookedgrouplesson.group_lesson.nome %> </td>
+            <td> <%= bookedgrouplesson.group_lesson.descrizione %> </td>
+            <td> <%= bookedgrouplesson.group_lesson.posti %> </td>
+            <td> <%= bookedgrouplesson.group_lesson.inizio %> </td>
+            <td> 60 min. </td>
+            <td> <a type="button" class="btn btn-outline-danger"   <%= link_to 'Cancella', delete_group_path(bookedgrouplesson),  :method => :delete %> </a>   </td>
+        </tr> 
+        <% end %>
+    </tbody>
+    </table>
+    <br>
+    <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
+    <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota una lezione di gruppo', showall_group_lessons_path %>  </a> 
   </div>
 
 
+    </p>
+        </div>
 
-
-
-
-
-
-
-
-
-              
-  <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> &nbsp; &nbsp;&nbsp; &nbsp; 
-  <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota una lezione di gruppo', showall_group_lessons_path %>  </a> 
-  </div>
-
-  </div>
 
 
      <div class="container">
