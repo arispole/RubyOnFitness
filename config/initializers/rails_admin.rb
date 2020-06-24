@@ -2,6 +2,8 @@ RailsAdmin.config do |config|
 
   ### Popular gems integration
 
+	config.parent_controller = '::ApplicationController'
+
   # == Devise ==
    config.authenticate_with do
      warden.authenticate! scope: :user
@@ -10,10 +12,10 @@ RailsAdmin.config do |config|
    config.current_user_method(&:current_user)
 
   # == CancanCan ==
-  config.authorize_with :cancancan
+  # config.authorize_with :cancancan
 
   ## == Pundit ==
-  # config.authorize_with :pundit
+  config.authorize_with :pundit
 
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
@@ -40,3 +42,29 @@ RailsAdmin.config do |config|
     # history_show
   end
 end
+
+module RailsAdmin
+  module Extensions
+    module Pundit
+      class AuthorizationAdapter
+        def authorize(action, abstract_model = nil, model_object = nil)
+          record = model_object || abstract_model && abstract_model.model
+          if action && !policy(record).send(*action_for_pundit(action))
+            raise ::Pundit::NotAuthorizedError.new("not allowed to #{action} this #{record}")
+          end
+          @controller.instance_variable_set(:@_pundit_policy_authorized, true)
+        end
+
+        def authorized?(action, abstract_model = nil, model_object = nil)
+          record = model_object || abstract_model && abstract_model.model
+          policy(record).send(*action_for_pundit(action)) if action
+        end
+
+        def action_for_pundit(action)
+          [:rails_admin?, action]
+        end
+      end
+    end
+  end
+end
+

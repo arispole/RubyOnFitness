@@ -2,7 +2,7 @@ class BookedGroupLessonsController < ApplicationController
 
 	def book
 		grouplesson_id = params[:id]
-		@bookedgrouplesson = current_user.booked_group_lessons.new
+		@bookedgrouplesson = authorize current_user.booked_group_lessons.new
 		@bookedgrouplesson.group_lesson_id = grouplesson_id
 		if @bookedgrouplesson.save
 			posti = @bookedgrouplesson.group_lesson.posti_disponibili - 1
@@ -16,7 +16,7 @@ class BookedGroupLessonsController < ApplicationController
 
 	def destroy
 		id = params[:id]
-		@bookedgrouplesson = BookedGroupLesson.find(id)
+		@bookedgrouplesson = authorize BookedGroupLesson.find(id)
 		posti = @bookedgrouplesson.group_lesson.posti_disponibili + 1
 		@bookedgrouplesson.group_lesson.update_attribute(:posti_disponibili, posti)
 		@bookedgrouplesson.destroy
@@ -24,7 +24,7 @@ class BookedGroupLessonsController < ApplicationController
 	end
 	
 	def showbooked
-		@bookedgrouplessons = current_user.booked_group_lessons
+		@bookedgrouplessons = authorize current_user.booked_group_lessons
 	end
 	
 end

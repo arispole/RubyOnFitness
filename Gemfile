@@ -38,7 +38,7 @@ gem 'omniauth-facebook'
 
 gem 'omniauth-google-oauth2'
 
-gem 'cancancan'
+gem "pundit"
 
 gem 'toastr-rails'
 
