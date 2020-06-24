@@ -1,13 +1,11 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../assets/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/stile.css">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/stile.css">
 </head>
 <body >
     <div class='fixed-top'>
@@ -80,29 +78,58 @@
     </div>
 
     <div class="container">
-    <h3>  Prenota una lezione privata </h3>
-                    
         <p class="lead big-padding">
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
-             Personal Trainer &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Inizio &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Durata <br>   
-      
-     
-    <% @privatelessons.each do |privatelesson| %>
+                <h3>Disponibilità per lezioni di gruppo</h3>
+                <table id='privatelessons'>
+                    <thead>
+                        <tr>
+                             <th>Nome</th>  <th>Descrizione</th>  <th>Posti totali</th>  <th>Posti prenotati</th>  <th>Inizio</th> 
     
-        <%= User.find(privatelesson.user_id).nome %>  <%= User.find(privatelesson.user_id).cognome%> &nbsp; &nbsp;&nbsp; &nbsp; 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @grouplessons.each do |grouplesson|%>
+                        <tr>
+                            
+                             
+                            
+                      
+                              <td>  <%= grouplesson.nome %> &nbsp; &nbsp;  </td>&nbsp; &nbsp; 
+                              <td>  <%= grouplesson.descrizione %> &nbsp; &nbsp; </td> &nbsp; &nbsp; 
+                            &nbsp; &nbsp;   <td>  <%= grouplesson.posti %> </td>  &nbsp; &nbsp; 
+                              <td> <%= grouplesson.posti_disponibili %>  </td>&nbsp; &nbsp; 
+                              <td> <%= grouplesson.inizio %> </td> &nbsp; &nbsp; 
+
+
+
+
+                            <td> 
+                             &nbsp; &nbsp;   <%= link_to 'Modifica', edit_group_lesson_path(grouplesson) %>
+                            </td>
+ <td> 
+                            </td>
+                            
+                            <td> 
+                             &nbsp; &nbsp;   <%= link_to 'Cancella',  group_lesson_path(grouplesson), :method => :delete %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
        
-        <%= privatelesson.inizio %>
-       &nbsp; &nbsp;&nbsp; &nbsp;  60 minuti &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-    <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_private_path(privatelesson), :method => :post  %> </a>  <br>    
-<% end %>
-  </div>
+ 
 
-              
-  <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
 
-  </div>
 
-  </div>
+
+            </div>
+    <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> &nbsp; &nbsp; 
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Aggiungi una nuova lezione di gruppo', new_group_lesson_path%> </a> 
+        </p>
+    </div>
+
+</html>
 
 
      <div class="container">
@@ -484,6 +511,5 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
-
 
 

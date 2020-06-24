@@ -93,7 +93,7 @@
      
     <% @grouplessons.each do |grouplesson| %>
     
-        <%= User.find(grouplesson.user_id).nome + " " + User.find(grouplesson.user_id).cognome%>&nbsp; &nbsp;&nbsp; &nbsp; 
+        <%= User.find(grouplesson.user_id).nome %>  <%= User.find(grouplesson.user_id).cognome%>&nbsp; &nbsp;&nbsp; &nbsp; 
        
 <%= grouplesson.nome %>&nbsp; &nbsp;&nbsp;
 <%= grouplesson.descrizione %> &nbsp; &nbsp;&nbsp;

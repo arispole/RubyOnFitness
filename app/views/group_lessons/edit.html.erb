@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,27 +81,38 @@
     </div>
 
     <div class="container">
-    <h3>  Prenota una lezione privata </h3>
-                    
         <p class="lead big-padding">
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
-             Personal Trainer &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Inizio &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Durata <br>   
-      
-     
-    <% @privatelessons.each do |privatelesson| %>
+                <h3> Modifica lezione </h3>
+                    
+
+
+ 
+<%= form_tag group_lesson_path(@grouplesson), :method => :put do %>
+
+    <%= label :grouplesson, :nome, 'Nome' %>
+    <%= text_field :grouplesson, :nome %>
+
+    <%= label :grouplesson, :descrizione, 'Descrizione' %>
+    <%= text_field :grouplesson, :descrizione %>
+
+    <%= label :grouplesson, :posti, 'Posti' %>
+    <%= text_field :grouplesson, :posti %> <br>
+
+    <%= label :grouplesson, :inizio, 'Inizio' %>
+    <%= datetime_select :grouplesson, :inizio %>
     
-        <%= User.find(privatelesson.user_id).nome %>  <%= User.find(privatelesson.user_id).cognome%> &nbsp; &nbsp;&nbsp; &nbsp; 
-       
-        <%= privatelesson.inizio %>
-       &nbsp; &nbsp;&nbsp; &nbsp;  60 minuti &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-    <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_private_path(privatelesson), :method => :post  %> </a>  <br>    
+  &nbsp; &nbsp;  <%= submit_tag 'Salva modifiche' %> 
 <% end %>
   </div>
 
-              
-  <a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro',homepage_index_path %>  </a> 
 
-  </div>
+
+   
+
+<a type="button" class="btn btn-outline-success"   <%= link_to 'Indietro', group_lessons_path %> </a> 
+              
+
 
   </div>
 
@@ -262,7 +274,7 @@
      
       <div class="container ">
       <p class="lead big-padding">
-      <a href="../info_e_contatti"><img src="../../assets/prenota.png" class="d-block w-100" " ></a>
+      <a href="../../info_e_contatti"><img src="../../assets/prenota.png" class="d-block w-100" " ></a>
       </div>
   
         </div>
@@ -484,6 +496,10 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
 
 
 
