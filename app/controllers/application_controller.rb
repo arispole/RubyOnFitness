@@ -8,16 +8,15 @@ class ApplicationController < ActionController::Base
 	
 	before_action :authenticate_user!
 	
-        before_action :configure_permitted_parameters,
-	 if: :devise_controller?
+        before_action :configure_permitted_parameters, if: :devise_controller?
           
           protected
 
-          def configure_permitted_parameters
-			devise_parameter_sanitizer.permit(:sign_up, keys: [ :avatar, :email, :password, :password_confirmation, :nome, :cognome, :datanascita, :sesso, :peso, :altezza, :indirizzo,  :varie, :tipoabbonamento])
-            devise_parameter_sanitizer.permit(:account_update, keys: [ :avatar, :email, :password, :password_confirmation, :nome, :cognome, :datanascita, :sesso, :peso, :altezza, :indirizzo,  :varie, :tipoabbonamento])
-
-          end
+		  
+		  def configure_permitted_parameters
+			devise_parameter_sanitizer.permit(:sign_up, keys: [ :avatar, :email, :password, :password_confirmation, :nome, :cognome, :datanascita, :sesso, :peso, :altezza, :indirizzo,  :varie, :tipoabbonamento, :datasocio ])
+			devise_parameter_sanitizer.permit(:account_update, keys: [ :avatar, :email, :password, :password_confirmation, :nome, :cognome, :datanascita, :sesso, :peso, :altezza, :indirizzo,  :varie, :tipoabbonamento])
+		end     
 	
 		def user_not_authorized
 			flash[:alert] = "You are not authorized to perform this action."
