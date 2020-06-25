@@ -65,5 +65,7 @@ class User < ApplicationRecord
   def set_datasocio
     self.datasocio ||= DateTime.now
   end
+
+  
 	
 end
