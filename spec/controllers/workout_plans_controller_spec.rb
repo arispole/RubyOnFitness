@@ -14,5 +14,5 @@ RSpec.describe "WorkoutPlans", type: :controller do
       end
 
 
-
+      
 end
