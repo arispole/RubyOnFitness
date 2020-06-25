@@ -45,7 +45,7 @@ class GroupLessonsController < ApplicationController
 	def update 
 		id = params[:id]
 		@grouplesson = authorize GroupLesson.find(id)
-		@grouplesson.update_attributes!(params[:grouplesson].permit(:nome, :descrizione, :posti, :inizio))
+		@grouplesson.update!(params[:grouplesson].permit(:nome, :descrizione, :posti, :inizio))
 		redirect_to group_lesson_path(@grouplesson)
 	end
 	
