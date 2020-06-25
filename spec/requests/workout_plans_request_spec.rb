@@ -8,10 +8,7 @@ RSpec.describe "WorkoutPlans", type: :request do
           get "/workout_plans"
           response.should redirect_to ("/users/sign_in")    
         end
-    
-        it "should render workout plans template" do
-            
-        end
+
       end
 
 
