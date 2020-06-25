@@ -1,14 +1,23 @@
 require 'rails_helper'
+require_relative '../support/devise'
 
 RSpec.describe GroupLessonsController, type: :controller do
-	
-	describe 'GET group_lessons#showall' do
+		
+	describe 'GET showall' do
 		it 'should render group_lessons#showall template' do
+			user = create :user
+			sign_in user
+			get :showall
+			expect(response).to render_template(:showall)
 		end 
 	end
 	
 	describe 'GET group_lessons#new' do
 		it 'should render group_lessons#new template' do
+			user = create :user
+			sign_in user
+			get :new
+			expect(response).to render_template(:new)
 		end
 	end
 	
@@ -18,15 +27,14 @@ RSpec.describe GroupLessonsController, type: :controller do
 	end
 	
 	describe 'DELETE group_lessons#destroy' do
+
 		it 'should delete a group lesson' do 
-			user = User.create!(nome: 'test', email: 'test@test.com', password: 'password', password_confirmation: 'password')
+			user = create :user
 			sign_in user
-			group_lesson = GroupLesson.create!(user_id: user.id, nome: 'lezione test', descrizione: 'descrizione test', posti: 30, posti_disponibili: 30)	
-			get group_lessons_path(group_lesson.id)
-			page.should have_link('Cancella')
-#			expect(group_lesson).to have_many(:booked_group_lessons).dependent(:destroy) 
-			expect { click_link 'Cancella' }.to change(GroupLesson, :count).by(-1)
+			group_lesson = GroupLesson.create!(user_id: user.id, nome: 'lezione test', descrizione: 'descrizione test', posti: 30, posti_disponibili: 30)
+			expect { delete :destroy, params: {id: group_lesson.id} }.to change(GroupLesson, :count).by(-1)
 		end
+
 	end
 		
 	
