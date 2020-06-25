@@ -40,6 +40,8 @@ gem 'omniauth-google-oauth2'
 
 gem "pundit"
 
+gem 'rails-controller-testing'
+
 gem 'toastr-rails'
 
 group :development, :test do
