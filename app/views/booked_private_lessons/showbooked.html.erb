@@ -92,7 +92,8 @@
           <thead>
               <tr>
                   <th>Personal Trainer &nbsp;&nbsp;&nbsp;&nbsp;</th> 
-                  <th>Orario &nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <th>Ora &nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <th>Data &nbsp;&nbsp;&nbsp;&nbsp;</th>
 
               </tr> 
           </thead>
@@ -100,7 +101,8 @@
               <% @bookedprivatelessons.each do |bookedprivatelesson| %>
                 <tr> 
                   <td> <%= User.find(bookedprivatelesson.private_lesson.user_id).nome %> <%= User.find(bookedprivatelesson.private_lesson.user_id).cognome %> </td>
-                  <td> <%= bookedprivatelesson.private_lesson.inizio %> </td>
+                  <td> <%= bookedprivatelesson.private_lesson.inizio.strftime("%H:%M") %> </td>
+                  <td> <%= bookedprivatelesson.private_lesson.inizio.strftime("%g-%m-%Y") %> &nbsp;&nbsp;&nbsp; </td>
                   <td> <a type="button" class="btn btn-outline-danger"   <%= link_to 'Cancella', delete_private_path(bookedprivatelesson),  :method => :delete %> </a> </td>
                 </tr> 
               <% end %>

@@ -84,7 +84,7 @@
                 <table id='privatelessons'>
                     <thead>
                         <tr>
-                             <th>Nome</th>  <th>Descrizione</th>  <th>Posti totali</th>  <th>Posti prenotati</th>  <th>Inizio</th> 
+                             <th>Nome  &nbsp; &nbsp; </th>  <th>Descrizione  &nbsp; &nbsp; </th>  <th>Posti &nbsp;  &nbsp; </th>  <th>Disponibili  &nbsp; &nbsp; </th>  <th>Ora &nbsp; &nbsp; </th>  <th>Data &nbsp;&nbsp;</th> 
     
                         </tr>
                     </thead>
@@ -95,11 +95,12 @@
                              
                             
                       
-                              <td>  <%= grouplesson.nome %> &nbsp; &nbsp;  </td>&nbsp; &nbsp; 
-                              <td>  <%= grouplesson.descrizione %> &nbsp; &nbsp; </td> &nbsp; &nbsp; 
-                            &nbsp; &nbsp;   <td>  <%= grouplesson.posti %> </td>  &nbsp; &nbsp; 
-                              <td> <%= grouplesson.posti_disponibili %>  </td>&nbsp; &nbsp; 
-                              <td> <%= grouplesson.inizio %> </td> &nbsp; &nbsp; 
+                              <td>  <%= grouplesson.nome %> &nbsp; &nbsp;  &nbsp; &nbsp;  </td>
+                              <td>  <%= grouplesson.descrizione %> &nbsp; &nbsp;  &nbsp; &nbsp; </td> 
+                              <td>  <%= grouplesson.posti %>  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  </td>  
+                              <td> <%= grouplesson.posti_disponibili %>   &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; </td>
+                              <td> <%= grouplesson.inizio.strftime("%H:%M") %>  &nbsp; &nbsp;  &nbsp; &nbsp; </td> 
+                              <td> <%= grouplesson.inizio.strftime("%d-%m-%Y") %>  &nbsp; &nbsp;  &nbsp;</td> 
 
 
 
@@ -107,7 +108,9 @@
                             <td> 
                              &nbsp; &nbsp;   <%= link_to 'Modifica', edit_group_lesson_path(grouplesson) %>
                             </td>
- <td> 
+                            
+                            <td>
+                             &nbsp; &nbsp;   <%= link_to 'Dettagli', group_lesson_path(grouplesson) %>							 
                             </td>
                             
                             <td> 

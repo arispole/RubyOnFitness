@@ -92,7 +92,8 @@
           <thead>
               <tr>
                   <th>Personal Trainer &nbsp;&nbsp;&nbsp;&nbsp;</th> 
-                  <th>Inizio &nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <th>Ora &nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <th>Data &nbsp;&nbsp;&nbsp;&nbsp;</th>
                   <th>Durata &nbsp;&nbsp;&nbsp;&nbsp;</th>
 
               </tr> 
@@ -101,7 +102,8 @@
               <% @privatelessons.each do |privatelesson| %>
                 <tr> 
                   <td> <%= User.find(privatelesson.user_id).nome %>  <%= User.find(privatelesson.user_id).cognome%> </td>
-                  <td> <%= privatelesson.inizio %> </td>
+                  <td> <%= privatelesson.inizio.strftime("%H:%M") %> &nbsp;&nbsp;&nbsp;</td>
+                  <td> <%= privatelesson.inizio.strftime("%d-%m-%Y") %> &nbsp;&nbsp;&nbsp;</td>
                   <td> 60 min. </td>
                   <td> <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_private_path(privatelesson), :method => :post  %> </a> </td>
                 </tr> 

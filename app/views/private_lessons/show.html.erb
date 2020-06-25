@@ -84,13 +84,17 @@
                 <h3> Dettagli lezione privata </h3>
                     
 
-		Data:
+		<b> Data: </b>
 		<%= @privatelesson.inizio.strftime("%d-%m-%Y") %>
 		
-		Ora:
+		<br>
+		
+		<b> Ora: </b>
 		<%= @privatelesson.inizio.strftime("%H:%M") %>		
 	
-		Prenotata da:
+        <br>
+	
+		<b> Prenotata da: </b>
         
 		<% if (@member != nil) %> 
 			<%= (User.find(@member)).nome %>
