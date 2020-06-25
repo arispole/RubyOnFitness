@@ -84,14 +84,17 @@
                 <h3> Dettagli lezione privata </h3>
                     
 
-		Inizio
-		<%= @privatelesson.inizio %>
+		Data:
+		<%= @privatelesson.inizio.strftime("%d-%m-%Y") %>
+		
+		Ora:
+		<%= @privatelesson.inizio.strftime("%H:%M") %>		
 	
-		Prenotata da
+		Prenotata da:
         
 		<% if (@member != nil) %> 
-			<%= @member.nome %>
-
+			<%= (User.find(@member)).nome %>
+			<%= (User.find(@member)).cognome %>
         <% end %>
       
   </div>
@@ -483,5 +486,3 @@ Contattaci e prenota la lezione di prova gratuita!
     <script src="/../../assets/bootstrap.min.js"></script>
 </body>
 </html>
-
-

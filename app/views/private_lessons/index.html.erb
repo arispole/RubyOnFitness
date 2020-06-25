@@ -84,23 +84,32 @@
                 <table id='privatelessons'>
                     <thead>
                         <tr>
-                            <th> Inizio </th>
+                            <th> Giorno </th>
+                            <th> Ora </th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @privatelessons.each do |privatelesson| %>
                         <tr>
+							
+							<td>   <%= privatelesson.inizio.strftime("%d-%m-%Y") %> &nbsp; &nbsp; </td>
+							
+							<td>   <%= privatelesson.inizio.strftime("%H:%M") %> &nbsp; &nbsp; </td>
+							
                             <% if privatelesson.booked == true then %>
                                 <td> Prenotata </td>
                             
                             <% else %>
-                                <td>   <%= privatelesson.inizio %> &nbsp; &nbsp; Disponibile  </td>
+                                <td> Disponibile </td>
                             <% end %>
-
-                            <td> 
-                             &nbsp; &nbsp;   <%= link_to 'Modifica', edit_private_lesson_path(privatelesson) %>
-                            </td>
- <td> 
+							
+							<% if privatelesson.booked == false then %>
+								<td> 
+									&nbsp; &nbsp;   <%= link_to 'Modifica', edit_private_lesson_path(privatelesson) %>
+								</td>
+							<% end %>
+							
+							<td> 
                              &nbsp; &nbsp;   <%= link_to 'Dettagli', private_lesson_path(privatelesson.id) %>
                             </td>
                             

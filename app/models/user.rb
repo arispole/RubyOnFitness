@@ -59,6 +59,13 @@ class User < ApplicationRecord
 			end
 		end
 	end
-	
+  
+  before_save :set_datasocio
+
+  def set_datasocio
+    self.datasocio ||= DateTime.now
+  end
+
+  
 	
 end

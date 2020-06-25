@@ -13,11 +13,11 @@ class PrivateLessonPolicy < ApplicationPolicy
   end
   
   def edit?
-	user.trainer_role? && @record.user_id == user.id
+	user.trainer_role? && @record.user_id == user.id && @record.booked == false
   end
   
   def update?
-	user.trainer_role? && @record.user_id == user.id
+	user.trainer_role? && @record.user_id == user.id && @record.booked == false
   end
   
   def destroy?
