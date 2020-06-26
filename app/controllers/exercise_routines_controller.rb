@@ -27,7 +27,7 @@ class ExerciseRoutinesController < ApplicationController
 	def update 
 		id = params[:id]
 		@exerciseroutine = authorize ExerciseRoutine.find(id)
-		@exerciseroutine.update_attributes!(params[:exercise_routine].permit(:serie, :ripetisione, :chilogrammi))
+		@exerciseroutine.update_attributes!(params[:exerciseroutine].permit(:serie, :ripetizione, :chilogrammi))
 		redirect_to workout_plan_path(@exerciseroutine.workout_plan_id)
 	end
 	

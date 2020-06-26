@@ -95,7 +95,9 @@
             <th>Nome &nbsp;&nbsp;&nbsp;&nbsp;</th> 
             <th>Descrizione &nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Posti &nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Inizio &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Disponibili &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Ora &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Data &nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Durata &nbsp;&nbsp;&nbsp;&nbsp;</th>
         </tr> 
     </thead>
@@ -104,9 +106,11 @@
         <tr> 
             <td> <%= User.find(grouplesson.user_id).nome %>  <%= User.find(grouplesson.user_id).cognome%> </td>
             <td> <%= grouplesson.nome %> </td>
-            <td> <%= grouplesson.descrizione %> </td>
+            <td> <%= grouplesson.descrizione %> &nbsp;&nbsp;</td>
             <td> <%= grouplesson.posti %> </td>
-            <td> <%= grouplesson.inizio %> </td>
+            <td> <%= grouplesson.posti_disponibili %> </td>
+            <td> <%= grouplesson.inizio.strftime("%H:%M") %> &nbsp;&nbsp;</td>
+            <td> <%= grouplesson.inizio.strftime("%g-%m-%Y") %> &nbsp;&nbsp;&nbsp; </td>
             <td> 60 min. </td>
             <td> <a type="button" class="btn btn-outline-success"   <%= link_to 'Prenota', book_group_path(grouplesson), :method => :post   %> </a> </td>
         </tr> 
